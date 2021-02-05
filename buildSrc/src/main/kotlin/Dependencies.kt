@@ -30,6 +30,10 @@ object Retrofit {
     const val moshiRetrofitConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
 }
 
+object OkHttp {
+    const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
+}
+
 object Coroutines {
     const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
@@ -65,4 +69,5 @@ object Versions {
     internal const val retrofit = "2.9.0"
     internal const val moshi = "1.11.0"
     internal const val room = "2.2.6"
+    internal const val okhttp = "4.9.1"
 }

@@ -35,6 +35,12 @@ android {
             isMinifyEnabled = false
             isShrinkResources = false
             isTestCoverageEnabled = true
+
+            buildConfigField(
+                "String",
+                "API_URL",
+                "\"https://www.google.com/\""
+            )
         }
 
         getByName("release") {
@@ -44,6 +50,12 @@ android {
             isZipAlignEnabled = true
             proguardFile(getDefaultProguardFile("proguard-android.txt"))
             proguardFile(file("proguard-rules.pro"))
+
+            buildConfigField(
+                "String",
+                "API_URL",
+                "\"https://www.google.com/\""
+            )
         }
     }
 
@@ -109,6 +121,9 @@ dependencies {
     // Retrofit
     implementation(Retrofit.retrofit)
     implementation(Retrofit.moshiRetrofitConverter)
+
+    // OkHttp
+    implementation(OkHttp.okHttpInterceptor)
 
     // Moshi
     implementation(Moshi.moshi)
