@@ -1,5 +1,7 @@
 package com.ericktijerou.topcoders
 
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class TopCodersApp {
-}
+@HiltAndroidApp
+class TopCodersApp : Application()
