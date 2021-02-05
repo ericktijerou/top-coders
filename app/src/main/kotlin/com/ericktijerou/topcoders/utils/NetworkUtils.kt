@@ -25,7 +25,6 @@ object NetworkUtils : ConnectivityManager.NetworkCallback() {
 
         var isConnected = false
 
-        // Retrieve current status of connectivity
         connectivityManager.allNetworks.forEach { network ->
             val networkCapability = connectivityManager.getNetworkCapabilities(network)
 
