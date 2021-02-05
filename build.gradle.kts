@@ -2,11 +2,13 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven("https://plugins.gradle.org/m2/")
     }
     dependencies {
-        classpath(Dependencies.androiGradlePlugin)
-        classpath(Dependencies.kotlinGradlePlugin)
-        classpath(Dependencies.kotlinSerializationGradlePugin)
+        classpath(Dependencies.gradle)
+        classpath(Dependencies.kotlinGradle)
+        classpath(Dependencies.daggerHilt)
+        classpath(Dependencies.ktLint)
     }
 }
 
