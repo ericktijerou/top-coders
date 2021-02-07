@@ -25,9 +25,9 @@ object Moshi {
     const val codeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
 }
 
-object Retrofit {
-    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val moshiRetrofitConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+object Apollo {
+    const val apollo = "com.apollographql.apollo:apollo-runtime:${Versions.apollo}"
+    const val apolloCoroutines = "com.apollographql.apollo:apollo-coroutines-support:${Versions.apollo}"
 }
 
 object OkHttp {
@@ -66,8 +66,8 @@ object Versions {
     internal const val activityKtx = "1.1.0"
     internal const val coil = "1.1.1"
     internal const val lifecycle = "2.2.0"
-    internal const val retrofit = "2.9.0"
     internal const val moshi = "1.11.0"
     internal const val room = "2.2.6"
     internal const val okhttp = "4.9.1"
+    internal const val apollo = "2.5.3"
 }

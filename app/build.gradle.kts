@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     id("dagger.hilt.android.plugin")
     id("org.jlleitschuh.gradle.ktlint")
+    id("com.apollographql.apollo").version("2.5.3")
     kotlin("kapt")
 }
 
@@ -86,6 +87,9 @@ ktlint {
     outputColorName.set("RED")
 }
 
+apollo {
+    generateKotlinModels.set(true)
+}
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
@@ -118,9 +122,9 @@ dependencies {
     // Coil-kt
     implementation(Dependencies.coil)
 
-    // Retrofit
-    implementation(Retrofit.retrofit)
-    implementation(Retrofit.moshiRetrofitConverter)
+    // Apollo
+    implementation(Apollo.apollo)
+    implementation(Apollo.apolloCoroutines)
 
     // OkHttp
     implementation(OkHttp.okHttpInterceptor)
