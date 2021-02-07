@@ -40,7 +40,7 @@ android {
             buildConfigField(
                 "String",
                 "API_URL",
-                "\"https://www.google.com/\""
+                "\"https://api.github.com/graphql\""
             )
         }
 
@@ -55,7 +55,7 @@ android {
             buildConfigField(
                 "String",
                 "API_URL",
-                "\"https://www.google.com/\""
+                "\"https://api.github.com/graphql\""
             )
         }
     }
