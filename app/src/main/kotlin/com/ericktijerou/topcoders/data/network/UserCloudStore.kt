@@ -1,19 +1,29 @@
 package com.ericktijerou.topcoders.data.network
 
 import com.apollographql.apollo.ApolloClient
+import com.apollographql.apollo.api.Input
 import com.ericktijerou.SearchUsersQuery
+import com.ericktijerou.topcoders.core.NotFoundException
+import com.ericktijerou.topcoders.data.entity.PageInfoModel
 import com.ericktijerou.topcoders.data.entity.UserModel
 import com.ericktijerou.topcoders.data.local.utils.suspendQuery
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.transform
 import javax.inject.Inject
 
 class UserCloudStore @Inject constructor(private val apolloClient: ApolloClient) {
 
-    @ExperimentalCoroutinesApi
-    suspend fun getUserListByLocation(location: String): Flow<List<UserModel>> {
-        return apolloClient.suspendQuery(SearchUsersQuery("location:$location"))
-            .transform { it.data }
+    suspend fun getUserListByLocation(
+        cursor: String?,
+        pageSize: Int,
+        location: String
+    ): Pair<PageInfoModel, List<UserModel>> {
+        return apolloClient.suspendQuery(
+            SearchUsersQuery(pageSize, Input.fromNullable(cursor), "location:$location")
+        ).data?.search?.run {
+            val results = nodes?.map {
+                it?.asUser?.run { UserModel(name = name.orEmpty(), username = login) }
+                    ?: throw NotFoundException()
+            } ?: throw NotFoundException()
+            PageInfoModel(pageInfo.endCursor, pageInfo.hasNextPage) to results
+        } ?: throw NotFoundException()
     }
 }

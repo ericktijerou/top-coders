@@ -1,6 +1,9 @@
-query SearchUsers($queryString:String!) {
-    search(first: 20, query: $queryString, type: USER) {
-        userCount
+query SearchUsers($size: Int!, $cursor: String, $queryString:String!) {
+    search(first: $size, after:$cursor, query: $queryString, type: USER) {
+        pageInfo {
+            endCursor
+            hasNextPage
+        }
         nodes {
             ... on User {
                 name

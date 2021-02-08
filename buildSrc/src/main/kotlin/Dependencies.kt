@@ -71,7 +71,7 @@ object Versions {
     internal const val coil = "1.1.1"
     internal const val lifecycle = "2.2.0"
     internal const val moshi = "1.11.0"
-    internal const val room = "2.2.6"
+    internal const val room = "2.3.0-beta01"
     internal const val okhttp = "4.9.1"
     internal const val apollo = "2.5.3"
     internal const val paging = "3.0.0-alpha13"
