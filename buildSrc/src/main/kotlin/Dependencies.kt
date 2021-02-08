@@ -46,6 +46,10 @@ object Android {
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 }
 
+object Paging {
+    const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
+}
+
 object Room {
     const val compiler = "androidx.room:room-compiler:${Versions.room}"
     const val ktx = "androidx.room:room-ktx:${Versions.room}"
@@ -70,4 +74,5 @@ object Versions {
     internal const val room = "2.2.6"
     internal const val okhttp = "4.9.1"
     internal const val apollo = "2.5.3"
+    internal const val paging = "3.0.0-alpha13"
 }

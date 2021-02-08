@@ -128,6 +128,9 @@ dependencies {
     implementation(Apollo.apollo)
     implementation(Apollo.apolloCoroutines)
 
+    // Paging
+    implementation(Paging.paging)
+
     // OkHttp
     implementation(OkHttp.okHttpInterceptor)
 
