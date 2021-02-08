@@ -1,0 +1,11 @@
+query SearchUsers($queryString:String!) {
+    search(first: 20, query: $queryString, type: USER) {
+        userCount
+        nodes {
+            ... on User {
+                name
+                login
+            }
+        }
+    }
+}
