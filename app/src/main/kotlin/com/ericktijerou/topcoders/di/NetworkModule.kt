@@ -2,6 +2,7 @@ package com.ericktijerou.topcoders.di
 
 import com.apollographql.apollo.ApolloClient
 import com.ericktijerou.topcoders.BuildConfig
+import com.ericktijerou.topcoders.data.network.AuthInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,6 +35,7 @@ object NetworkModule {
     fun provideApollo(okHttpClient: OkHttpClient): ApolloClient {
         return ApolloClient.builder()
             .serverUrl(BuildConfig.API_URL)
+            .addApplicationInterceptor(AuthInterceptor())
             .okHttpClient(okHttpClient)
             .build()
     }
