@@ -29,6 +29,8 @@ android {
                 )
             }
         }
+        val githubOauthKey = Globals.buildProperties["githubOauthKey"]
+        buildConfigField("String", "GITHUB_OAUTH_TOKEN", "\"$githubOauthKey\"")
     }
 
     buildTypes {

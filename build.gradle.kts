@@ -1,3 +1,5 @@
+import java.io.FileInputStream
+
 buildscript {
     repositories {
         google()
@@ -22,3 +24,5 @@ allprojects {
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
+
+Globals.buildProperties.load(FileInputStream("build.properties"))

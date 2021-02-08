@@ -16,7 +16,7 @@ class AuthInterceptor : ApolloInterceptor {
             request.toBuilder().requestHeaders(
                 request.requestHeaders.toBuilder().addHeader(
                     HEADER_AUTHORIZATION,
-                    "$HEADER_AUTHORIZATION_BEARER"
+                    "$HEADER_AUTHORIZATION_BEARER ${BuildConfig.GITHUB_OAUTH_TOKEN}"
                 ).build()
             ).build(), dispatcher, callBack
         )
