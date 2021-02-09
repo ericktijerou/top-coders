@@ -2,12 +2,10 @@ package com.ericktijerou.topcoders.data.repository
 
 import androidx.paging.*
 import com.ericktijerou.topcoders.data.local.UserDataStore
-import com.ericktijerou.topcoders.data.local.entity.UserEntity
-import com.ericktijerou.topcoders.data.local.entity.toData
 import com.ericktijerou.topcoders.data.local.entity.toDomain
 import com.ericktijerou.topcoders.data.network.UserCloudStore
-import com.ericktijerou.topcoders.domain.User
-import com.ericktijerou.topcoders.domain.UserRepository
+import com.ericktijerou.topcoders.domain.entity.User
+import com.ericktijerou.topcoders.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
