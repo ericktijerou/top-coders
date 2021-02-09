@@ -7,5 +7,5 @@ fun SearchUsersQuery.AsUser.toData() = UserModel(
     name = name.orEmpty(),
     username = login,
     avatarUrl = (avatarUrl as? String).orEmpty(),
-    bio = bio.orEmpty()
+    bio = bio.orEmpty().trim()
 )
