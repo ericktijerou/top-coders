@@ -10,17 +10,13 @@ data class UserEntity(
     @PrimaryKey(autoGenerate = true) var id: Long = 0,
     val name: String,
     val username: String,
-    val avatarUrl: String
-)
-
-fun UserEntity.toData() = UserModel(
-    name = name,
-    username = username,
-    avatarUrl = avatarUrl
+    val avatarUrl: String,
+    val bio: String
 )
 
 fun UserEntity.toDomain() = User(
     name = name,
     username = username,
-    avatarUrl = avatarUrl
+    avatarUrl = avatarUrl,
+    bio = bio
 )
