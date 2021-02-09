@@ -1,4 +1,4 @@
-package com.ericktijerou.topcoders.ui
+package com.ericktijerou.topcoders.ui.home
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData

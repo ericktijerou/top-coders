@@ -81,7 +81,7 @@ android {
         getByName("androidTest").java.srcDirs("src/androidTest/kotlin")
     }
 
-    buildFeatures.viewBinding = true
+    buildFeatures.dataBinding = true
 }
 
 ktlint {
@@ -108,6 +108,7 @@ dependencies {
     implementation(Android.activityKtx)
     implementation(Android.coreKtx)
     implementation(Android.constraintLayout)
+    implementation(Android.refreshLayout)
 
     // Architecture Components
     implementation(Lifecycle.viewModel)
@@ -138,6 +139,10 @@ dependencies {
     implementation(Moshi.moshi)
     implementation(Moshi.codeGen)
     kapt(Moshi.codeGen)
+
+    // Navigation
+    implementation(Navigation.navigation)
+    implementation(Navigation.navigationKtx)
 
     // Hilt + Dagger
     implementation(Hilt.hiltAndroid)

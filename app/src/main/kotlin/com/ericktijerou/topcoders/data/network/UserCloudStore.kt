@@ -6,7 +6,7 @@ import com.ericktijerou.SearchUsersQuery
 import com.ericktijerou.topcoders.core.NotFoundException
 import com.ericktijerou.topcoders.data.entity.PageInfoModel
 import com.ericktijerou.topcoders.data.entity.UserModel
-import com.ericktijerou.topcoders.data.local.utils.suspendQuery
+import com.ericktijerou.topcoders.data.local.util.suspendQuery
 import javax.inject.Inject
 
 class UserCloudStore @Inject constructor(private val apolloClient: ApolloClient) {

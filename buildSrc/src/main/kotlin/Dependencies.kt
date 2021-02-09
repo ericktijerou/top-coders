@@ -44,6 +44,7 @@ object Android {
     const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val refreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.refreshLayout}"
 }
 
 object Paging {
@@ -54,6 +55,11 @@ object Room {
     const val compiler = "androidx.room:room-compiler:${Versions.room}"
     const val ktx = "androidx.room:room-ktx:${Versions.room}"
     const val runtime = "androidx.room:room-runtime:${Versions.room}"
+}
+
+object Navigation {
+    const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigationKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 }
 
 object Versions {
@@ -75,4 +81,6 @@ object Versions {
     internal const val okhttp = "4.9.1"
     internal const val apollo = "2.5.3"
     internal const val paging = "3.0.0-alpha13"
+    internal const val navigation = "2.3.3"
+    internal const val refreshLayout = "1.1.0"
 }
