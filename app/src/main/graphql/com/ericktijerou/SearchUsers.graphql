@@ -8,6 +8,7 @@ query SearchUsers($size: Int!, $cursor: String, $queryString:String!) {
             ... on User {
                 name
                 login
+                avatarUrl
             }
         }
     }

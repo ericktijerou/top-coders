@@ -20,7 +20,7 @@ class UserCloudStore @Inject constructor(private val apolloClient: ApolloClient)
             SearchUsersQuery(pageSize, Input.fromNullable(cursor), "location:$location")
         ).data?.search?.run {
             val results = nodes?.map {
-                it?.asUser?.run { UserModel(name = name.orEmpty(), username = login) }
+                it?.asUser?.run { UserModel(name = name.orEmpty(), username = login, avatarUrl = (avatarUrl as? String).orEmpty()) }
                     ?: throw NotFoundException()
             } ?: throw NotFoundException()
             PageInfoModel(pageInfo.endCursor, pageInfo.hasNextPage) to results

@@ -9,15 +9,18 @@ import com.ericktijerou.topcoders.domain.entity.User
 data class UserEntity(
     @PrimaryKey(autoGenerate = true) var id: Long = 0,
     val name: String,
-    val username: String
+    val username: String,
+    val avatarUrl: String
 )
 
 fun UserEntity.toData() = UserModel(
     name = name,
-    username = username
+    username = username,
+    avatarUrl = avatarUrl
 )
 
 fun UserEntity.toDomain() = User(
     name = name,
-    username = username
+    username = username,
+    avatarUrl = avatarUrl
 )
