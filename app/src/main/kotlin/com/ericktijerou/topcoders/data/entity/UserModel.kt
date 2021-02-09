@@ -7,12 +7,7 @@ data class UserModel(
     val name: String,
     val username: String,
     val avatarUrl: String,
-    val bio: String
-)
-
-fun UserModel.toLocal() = UserEntity(
-    name = name,
-    username = username,
-    avatarUrl = avatarUrl,
-    bio = bio
+    val bio: String,
+    val company: String,
+    val createdAt: String
 )

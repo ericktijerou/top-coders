@@ -10,6 +10,8 @@ query SearchUsers($size: Int!, $cursor: String, $queryString:String!) {
                 login
                 avatarUrl
                 bio
+                createdAt
+                company
             }
         }
     }

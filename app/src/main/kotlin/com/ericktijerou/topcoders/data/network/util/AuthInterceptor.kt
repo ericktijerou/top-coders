@@ -1,4 +1,4 @@
-package com.ericktijerou.topcoders.data.network
+package com.ericktijerou.topcoders.data.network.util
 
 import com.apollographql.apollo.interceptor.ApolloInterceptor
 import com.apollographql.apollo.interceptor.ApolloInterceptorChain

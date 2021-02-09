@@ -21,6 +21,7 @@
     <dimen name="font_large">18sp</dimen>
     <dimen name="font_xl">22sp</dimen>
 
+    <dimen name="icon_xs">14dp</dimen>
     <dimen name="icon_small">18dp</dimen>
     <dimen name="icon_medium">24dp</dimen>
     <dimen name="icon_large">32dp</dimen>

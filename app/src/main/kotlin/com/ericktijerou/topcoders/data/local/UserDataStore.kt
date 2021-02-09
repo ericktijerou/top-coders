@@ -3,11 +3,11 @@ package com.ericktijerou.topcoders.data.local
 import androidx.paging.PagingSource
 import androidx.room.withTransaction
 import com.ericktijerou.topcoders.data.entity.UserModel
-import com.ericktijerou.topcoders.data.entity.toLocal
 import com.ericktijerou.topcoders.data.local.dao.UserDao
 import com.ericktijerou.topcoders.data.local.entity.UserEntity
 import com.ericktijerou.topcoders.data.local.system.PreferencesHelper
 import com.ericktijerou.topcoders.data.local.system.TopCodersDatabase
+import com.ericktijerou.topcoders.data.mapper.toLocal
 import javax.inject.Inject
 
 class UserDataStore @Inject constructor(

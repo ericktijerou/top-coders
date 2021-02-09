@@ -1,4 +1,4 @@
-package com.ericktijerou.topcoders.utils
+package com.ericktijerou.topcoders.util
 
 import android.content.Context
 import android.net.ConnectivityManager

@@ -8,9 +8,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.ericktijerou.topcoders.domain.entity.toView
 import com.ericktijerou.topcoders.domain.usecase.GetUserListUseCase
 import com.ericktijerou.topcoders.ui.entity.UserView
+import com.ericktijerou.topcoders.ui.mapper.toView
 import kotlinx.coroutines.flow.map
 
 class HomeViewModel @ViewModelInject constructor(
