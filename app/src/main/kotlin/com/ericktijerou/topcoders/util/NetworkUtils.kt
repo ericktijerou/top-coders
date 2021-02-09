@@ -14,7 +14,8 @@ object NetworkUtils : ConnectivityManager.NetworkCallback() {
     private val networkLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
     fun getNetworkLiveData(context: Context): LiveData<Boolean> {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             connectivityManager.registerDefaultNetworkCallback(this)

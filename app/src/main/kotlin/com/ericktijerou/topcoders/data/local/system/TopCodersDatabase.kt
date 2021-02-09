@@ -16,7 +16,8 @@ abstract class TopCodersDatabase : RoomDatabase() {
         private const val DB_NAME = "topcoders_database"
 
         fun newInstance(context: Context): TopCodersDatabase {
-            return Room.databaseBuilder(context, TopCodersDatabase::class.java,
+            return Room.databaseBuilder(
+                context, TopCodersDatabase::class.java,
                 DB_NAME
             ).build()
         }

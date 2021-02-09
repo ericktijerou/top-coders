@@ -5,7 +5,6 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import com.apollographql.apollo.exception.ApolloHttpException
-import com.ericktijerou.topcoders.data.entity.UserModel
 import com.ericktijerou.topcoders.data.local.UserDataStore
 import com.ericktijerou.topcoders.data.local.entity.UserEntity
 import com.ericktijerou.topcoders.data.network.UserCloudStore

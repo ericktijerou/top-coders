@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.map
 
 class HomeViewModel @ViewModelInject constructor(
     private val getUserListUseCase: GetUserListUseCase
-): ViewModel() {
+) : ViewModel() {
 
     val userList: LiveData<PagingData<UserView>> by lazy {
         getUserListUseCase.invoke("peru").map { pagingData ->

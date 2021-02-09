@@ -5,7 +5,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.ericktijerou.topcoders.data.local.entity.RemoteKeyEntity
 import com.ericktijerou.topcoders.data.local.entity.UserEntity
 
 @Dao

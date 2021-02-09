@@ -1,7 +1,5 @@
 package com.ericktijerou.topcoders.di
 
-import com.apollographql.apollo.ApolloClient
-import com.ericktijerou.topcoders.data.network.UserCloudStore
 import com.ericktijerou.topcoders.domain.repository.UserRepository
 import com.ericktijerou.topcoders.domain.usecase.GetUserListUseCase
 import dagger.Module

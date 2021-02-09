@@ -1,6 +1,5 @@
 package com.ericktijerou.topcoders.di
 
-import android.app.Application
 import android.content.Context
 import com.ericktijerou.topcoders.data.local.system.PreferencesHelper
 import com.ericktijerou.topcoders.data.local.system.TopCodersDatabase
@@ -17,7 +16,8 @@ object PersistenceModule {
 
     @Singleton
     @Provides
-    fun provideDatabase(@ApplicationContext context: Context) = TopCodersDatabase.newInstance(context)
+    fun provideDatabase(@ApplicationContext context: Context) =
+        TopCodersDatabase.newInstance(context)
 
     @Singleton
     @Provides

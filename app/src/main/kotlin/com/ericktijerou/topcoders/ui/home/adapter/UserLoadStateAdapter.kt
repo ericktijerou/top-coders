@@ -5,7 +5,8 @@ import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import com.ericktijerou.topcoders.ui.home.viewholder.LoadStateViewHolder
 
-class UserLoadStateAdapter(private val retry: () -> Unit) : LoadStateAdapter<LoadStateViewHolder>() {
+class UserLoadStateAdapter(private val retry: () -> Unit) :
+    LoadStateAdapter<LoadStateViewHolder>() {
     override fun onBindViewHolder(holder: LoadStateViewHolder, loadState: LoadState) {
         holder.bind(loadState)
     }

@@ -13,7 +13,7 @@ import javax.inject.Inject
 class UserRepositoryImpl @Inject constructor(
     private val local: UserDataStore,
     private val remote: UserCloudStore
-): UserRepository {
+) : UserRepository {
     companion object {
         const val DEFAULT_PAGE_SIZE = 20
     }
