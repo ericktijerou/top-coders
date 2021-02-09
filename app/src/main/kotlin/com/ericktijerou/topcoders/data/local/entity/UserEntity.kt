@@ -7,7 +7,7 @@ import com.ericktijerou.topcoders.domain.entity.User
 
 @Entity(tableName = "User")
 data class UserEntity(
-    @PrimaryKey var id: Int? = 0,
+    @PrimaryKey(autoGenerate = true) var id: Long = 0,
     val name: String,
     val username: String
 )

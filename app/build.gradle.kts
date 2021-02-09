@@ -35,6 +35,7 @@ android {
 
     buildTypes {
         getByName("debug") {
+            isDebuggable = true
             isMinifyEnabled = false
             isShrinkResources = false
             isTestCoverageEnabled = true
