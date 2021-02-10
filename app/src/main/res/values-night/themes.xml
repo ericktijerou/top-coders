@@ -1,16 +1,13 @@
 <resources>
-    <!-- Base application theme. -->
     <style name="Theme.Topcoders" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blackLight</item>
         <item name="colorPrimaryVariant">@color/blackLight</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Customize your theme here. -->
         <item name="fontFamily">@font/lato_fonts_family</item>
+        <item name="android:background">?attr/colorPrimary</item>
     </style>
 
     <style name="Theme.Topcoders.Main" parent="Theme.Topcoders" />
