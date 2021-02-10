@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val decorFitsFlags = View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
         val decorView = window.decorView
         val sysUiVis = decorView.systemUiVisibility
-        window.navigationBarColor = getAttributeColor(R.attr.colorOnPrimary)
+        window.navigationBarColor = getAttributeColor(R.attr.colorPrimary)
         decorView.systemUiVisibility = sysUiVis or decorFitsFlags
     }
 
