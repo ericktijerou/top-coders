@@ -62,6 +62,10 @@ object Navigation {
     const val navigationKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 }
 
+object ViewPager {
+    const val viewPager2 = "androidx.viewpager2:viewpager2:${Versions.viewPager2}"
+}
+
 object Versions {
     internal const val appcompat = "1.2.0"
     internal const val constraintLayout = "2.0.4"
@@ -83,4 +87,5 @@ object Versions {
     internal const val paging = "3.0.0-alpha13"
     internal const val navigation = "2.3.3"
     internal const val refreshLayout = "1.1.0"
+    internal const val viewPager2 = "1.0.0"
 }

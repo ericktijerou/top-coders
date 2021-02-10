@@ -2,12 +2,13 @@ package com.ericktijerou.topcoders.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.ericktijerou.topcoders.R
 import com.ericktijerou.topcoders.databinding.ActivityMainBinding
+import com.ericktijerou.topcoders.ui.home.HomeFragment
 import com.ericktijerou.topcoders.ui.util.dataBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,18 +16,46 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private val binding: ActivityMainBinding by dataBinding()
-    private lateinit var appBarConfiguration: AppBarConfiguration
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSupportActionBar(binding.toolbar)
-        val navController = findNavController(R.id.nav_host_fragment)
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_main))
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        initViewPager()
+        initNavigationView()
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    private fun initViewPager() {
+        with(binding) {
+            viewPager.apply {
+                isUserInputEnabled = false
+                adapter = MainPagerAdapter(this@MainActivity, listOf(HomeFragment(), FirstFragment(), SecondFragment()))
+                registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                    override fun onPageSelected(position: Int) {
+                        super.onPageSelected(position)
+                        navigationView.menu.getItem(position).isChecked = true
+                    }
+                })
+            }
+        }
+    }
+
+    private fun initNavigationView() {
+        with(binding) {
+            navigationView.setOnNavigationItemSelectedListener {
+                when (it.itemId) {
+                    R.id.homeFragment -> viewPager.setCurrentItem(0, false)
+                    R.id.firstFragment -> viewPager.setCurrentItem(1, false)
+                    R.id.secondFragment -> viewPager.setCurrentItem(2, false)
+                }
+                true
+            }
+        }
+    }
+
+    private inner class MainPagerAdapter(fa: FragmentActivity, private val items: List<Fragment>) :
+        FragmentStateAdapter(fa) {
+
+        override fun getItemCount(): Int = items.size
+
+        override fun createFragment(position: Int): Fragment = items[position]
     }
 }

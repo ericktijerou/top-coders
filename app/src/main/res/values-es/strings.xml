@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">topcoders</string>
     <string name="label_joined_on">Se unió el %s</string>
+    <string name="label_home">Inicio</string>
 </resources>

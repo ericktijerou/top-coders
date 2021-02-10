@@ -3,13 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/nav_main">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/nav_main"
+        android:id="@+id/homeFragment"
         android:name="com.ericktijerou.topcoders.ui.home.HomeFragment"
         android:label="TopCoders"
-        tools:layout="@layout/fragment_home" >
-    </fragment>
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.ericktijerou.topcoders.ui.FirstFragment"
+        android:label="FirstFragment"
+        tools:layout="@layout/fragment_first" />
+
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.ericktijerou.topcoders.ui.SecondFragment"
+        android:label="SecondFragment"
+        tools:layout="@layout/fragment_second" />
 
 </navigation>

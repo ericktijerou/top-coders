@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">topcoders</string>
     <string name="label_joined_on">Joined on %s</string>
+    <string name="label_home">Home</string>
 </resources>

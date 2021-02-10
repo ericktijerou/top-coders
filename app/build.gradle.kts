@@ -145,6 +145,9 @@ dependencies {
     implementation(Navigation.navigation)
     implementation(Navigation.navigationKtx)
 
+    // ViewPager
+    implementation(ViewPager.viewPager2)
+
     // Hilt + Dagger
     implementation(Hilt.hiltAndroid)
     implementation(Hilt.hiltViewModel)
