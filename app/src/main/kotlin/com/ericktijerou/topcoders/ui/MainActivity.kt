@@ -1,8 +1,10 @@
 package com.ericktijerou.topcoders.ui
 
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.Window
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -12,6 +14,9 @@ import com.ericktijerou.topcoders.R
 import com.ericktijerou.topcoders.databinding.ActivityMainBinding
 import com.ericktijerou.topcoders.ui.home.HomeFragment
 import com.ericktijerou.topcoders.ui.util.dataBinding
+import com.ericktijerou.topcoders.ui.util.getAttributeColor
+import com.ericktijerou.topcoders.ui.util.isDarkThemeOn
+import com.ericktijerou.topcoders.ui.util.isOreo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,24 +24,22 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private val binding: ActivityMainBinding by dataBinding()
     override fun onCreate(savedInstanceState: Bundle?) {
-        setupStatusBar()
+        setDecorFitsSystemWindows(window)
         super.onCreate(savedInstanceState)
         setSupportActionBar(binding.toolbar)
         initViewPager()
         initNavigationView()
     }
 
-    private fun setupStatusBar() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            window.statusBarColor = Color.BLACK
-        }
-    }
 
     private fun initViewPager() {
         with(binding) {
             viewPager.apply {
                 isUserInputEnabled = false
-                adapter = MainPagerAdapter(this@MainActivity, listOf(HomeFragment(), FirstFragment(), SecondFragment()))
+                adapter = MainPagerAdapter(
+                    this@MainActivity,
+                    listOf(HomeFragment(), FirstFragment(), SecondFragment())
+                )
                 registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                     override fun onPageSelected(position: Int) {
                         super.onPageSelected(position)
@@ -58,6 +61,24 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 true
             }
         }
+    }
+
+    private fun setDecorFitsSystemWindows(window: Window) {
+        if (isOreo() && !isDarkThemeOn()) {
+            setDecorFitsSystemWindows26(window)
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setDecorFitsSystemWindows26(
+        window: Window
+    ) {
+        val decorFitsFlags = View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+        val decorView = window.decorView
+        val sysUiVis = decorView.systemUiVisibility
+        window.navigationBarColor = getAttributeColor(R.attr.colorOnPrimary)
+        decorView.systemUiVisibility = sysUiVis or decorFitsFlags
     }
 
     private inner class MainPagerAdapter(fa: FragmentActivity, private val items: List<Fragment>) :

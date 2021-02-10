@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:name=".TopCodersApp"
         android:theme="@style/Theme.Topcoders">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.MainActivity"
+            android:theme="@style/Theme.Topcoders.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

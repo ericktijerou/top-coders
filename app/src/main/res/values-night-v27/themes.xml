@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Topcoders" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Topcoders.Main" parent="Theme.Topcoders">
         <item name="android:windowLightNavigationBar">false</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">?attr/colorOnPrimary</item>
