@@ -1,5 +1,7 @@
 package com.ericktijerou.topcoders.ui
 
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -17,10 +19,17 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private val binding: ActivityMainBinding by dataBinding()
     override fun onCreate(savedInstanceState: Bundle?) {
+        setupStatusBar()
         super.onCreate(savedInstanceState)
         setSupportActionBar(binding.toolbar)
         initViewPager()
         initNavigationView()
+    }
+
+    private fun setupStatusBar() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            window.statusBarColor = Color.BLACK
+        }
     }
 
     private fun initViewPager() {
