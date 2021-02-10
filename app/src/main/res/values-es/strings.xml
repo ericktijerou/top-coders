@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">topcoders</string>
+    <string name="label_joined_on">Se unió el %s</string>
+</resources>

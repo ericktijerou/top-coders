@@ -2,6 +2,7 @@ package com.ericktijerou.topcoders.ui.util
 
 import android.content.Context
 import android.widget.Toast
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -19,6 +20,6 @@ fun String.toDate(): Date?  {
 }
 
 fun Date.formatToViewDateDefaults(): String {
-    val sdf= SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault())
+    val sdf= SimpleDateFormat.getDateInstance(DateFormat.LONG , Locale.getDefault())
     return sdf.format(this).capitalize(Locale.getDefault())
 }

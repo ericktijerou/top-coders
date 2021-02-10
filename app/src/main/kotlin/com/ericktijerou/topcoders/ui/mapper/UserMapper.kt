@@ -12,6 +12,7 @@ fun User.toView(): UserView {
         username = username,
         avatarUrl = avatarUrl,
         bio = bio,
+        hasCompany = hasCompany,
         info = if (hasCompany) company else createdAt.toJoinedDate(),
         infoIcon = if (hasCompany) R.drawable.ic_business else R.drawable.ic_clock
     )

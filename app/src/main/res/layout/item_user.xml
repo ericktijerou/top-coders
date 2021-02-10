@@ -70,7 +70,7 @@
             android:ellipsize="end"
             android:gravity="center"
             android:lines="1"
-            android:text="@{model.info}"
+            android:text= "@{model.hasCompany ? model.info : String.format(@string/label_joined_on, model.info)}"
             android:textAppearance="?attr/textAppearanceSubtitle2"
             android:textColor="?android:textColorSecondary"
             android:textSize="@dimen/font_xs"

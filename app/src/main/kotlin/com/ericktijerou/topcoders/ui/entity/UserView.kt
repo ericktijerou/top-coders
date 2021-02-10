@@ -7,6 +7,7 @@ data class UserView(
     val username: String,
     val avatarUrl: String,
     val bio: String,
+    val hasCompany: Boolean,
     val info: String,
     @DrawableRes val infoIcon: Int
 )

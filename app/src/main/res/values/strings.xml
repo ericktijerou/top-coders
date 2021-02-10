@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">topcoders</string>
+    <string name="label_joined_on">Joined on %s</string>
 </resources>
