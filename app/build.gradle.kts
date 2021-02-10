@@ -136,11 +136,6 @@ dependencies {
     // OkHttp
     implementation(OkHttp.okHttpInterceptor)
 
-    // Moshi
-    implementation(Moshi.moshi)
-    implementation(Moshi.codeGen)
-    kapt(Moshi.codeGen)
-
     // Navigation
     implementation(Navigation.navigation)
     implementation(Navigation.navigationKtx)
