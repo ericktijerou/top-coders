@@ -3,7 +3,7 @@
     <style name="Theme.Topcoders.Main" parent="Theme.Topcoders">
         <item name="android:windowLightNavigationBar">false</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:statusBarColor">?attr/colorOnPrimary</item>
-        <item name="android:navigationBarColor">?attr/colorOnPrimary</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:navigationBarColor">?attr/colorPrimary</item>
     </style>
 </resources>
