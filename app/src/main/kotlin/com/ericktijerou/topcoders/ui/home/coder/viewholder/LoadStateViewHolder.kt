@@ -1,4 +1,4 @@
-package com.ericktijerou.topcoders.ui.home.viewholder
+package com.ericktijerou.topcoders.ui.home.coder.viewholder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

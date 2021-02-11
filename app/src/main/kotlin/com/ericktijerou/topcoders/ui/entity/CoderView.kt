@@ -2,7 +2,7 @@ package com.ericktijerou.topcoders.ui.entity
 
 import androidx.annotation.DrawableRes
 
-data class UserView(
+data class CoderView(
     val name: String,
     val username: String,
     val avatarUrl: String,

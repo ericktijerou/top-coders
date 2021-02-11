@@ -8,6 +8,9 @@ import android.widget.Toast
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.core.content.res.use
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -41,4 +44,13 @@ fun Context.getAttributeColor(@AttrRes attrId: Int): Int {
     return obtainStyledAttributes(intArrayOf(attrId)).use {
         it.getColor(0, Color.BLACK)
     }
+}
+
+fun TabLayout.setupWithViewPager2(viewPager: ViewPager2) {
+    val pageTitleProvider = viewPager.adapter as PageTitleProvider
+    val strategy = TabLayoutMediator.TabConfigurationStrategy { tab, position ->
+        tab.text = pageTitleProvider.getPageTitle(position)
+    }
+    val mediator = TabLayoutMediator(this, viewPager, strategy)
+    mediator.attach()
 }

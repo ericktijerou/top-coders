@@ -7,15 +7,15 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.ericktijerou.topcoders.ui.home.HomeFragment"
+        android:name="com.ericktijerou.topcoders.ui.home.coder.CoderHomeFragment"
         android:label="TopCoders"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.ericktijerou.topcoders.ui.FirstFragment"
+        android:name="com.ericktijerou.topcoders.ui.home.repo.RepoHomeFragment"
         android:label="FirstFragment"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_repo_home" />
 
     <fragment
         android:id="@+id/secondFragment"

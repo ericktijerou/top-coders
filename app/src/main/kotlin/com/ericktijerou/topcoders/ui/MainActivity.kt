@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.ericktijerou.topcoders.R
 import com.ericktijerou.topcoders.databinding.ActivityMainBinding
 import com.ericktijerou.topcoders.ui.home.HomeFragment
+import com.ericktijerou.topcoders.ui.home.repo.RepoHomeFragment
 import com.ericktijerou.topcoders.ui.util.dataBinding
 import com.ericktijerou.topcoders.ui.util.getAttributeColor
 import com.ericktijerou.topcoders.ui.util.isDarkThemeOn
@@ -38,7 +39,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 isUserInputEnabled = false
                 adapter = MainPagerAdapter(
                     this@MainActivity,
-                    listOf(HomeFragment(), FirstFragment(), SecondFragment())
+                    listOf(HomeFragment(),
+                        RepoHomeFragment(), SecondFragment())
                 )
                 registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                     override fun onPageSelected(position: Int) {

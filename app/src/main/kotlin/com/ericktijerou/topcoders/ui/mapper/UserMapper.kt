@@ -2,12 +2,12 @@ package com.ericktijerou.topcoders.ui.mapper
 
 import com.ericktijerou.topcoders.R
 import com.ericktijerou.topcoders.domain.entity.User
-import com.ericktijerou.topcoders.ui.entity.UserView
+import com.ericktijerou.topcoders.ui.entity.CoderView
 import com.ericktijerou.topcoders.ui.util.toJoinedDate
 
-fun User.toView(): UserView {
+fun User.toView(): CoderView {
     val hasCompany = company.isNotEmpty()
-    return UserView(
+    return CoderView(
         name = name,
         username = username,
         avatarUrl = avatarUrl,

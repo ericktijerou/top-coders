@@ -7,11 +7,11 @@
 
         <variable
             name="model"
-            type="com.ericktijerou.topcoders.ui.entity.UserView" />
+            type="com.ericktijerou.topcoders.ui.entity.CoderView" />
 
         <variable
             name="listener"
-            type="com.ericktijerou.topcoders.ui.home.adapter.UserItemListener" />
+            type="com.ericktijerou.topcoders.ui.home.coder.adapter.CoderItemListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
