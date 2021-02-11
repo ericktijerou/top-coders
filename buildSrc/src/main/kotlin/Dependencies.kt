@@ -74,7 +74,7 @@ object Versions {
     internal const val daggerHiltAndroid = "1.0.0-alpha02"
     internal const val kotlin = "1.4.30"
     internal const val coroutines = "1.4.2"
-    internal const val materialDesign = "1.2.1"
+    internal const val materialDesign = "1.3.0"
     internal const val ktLint = "9.2.1"
     internal const val coreKtx = "1.3.2"
     internal const val activityKtx = "1.1.0"
