@@ -1,9 +1,12 @@
 package com.ericktijerou.topcoders.ui.util
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Build
+import android.util.TypedValue
+import android.view.View
 import android.widget.Toast
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
@@ -23,17 +26,18 @@ fun String.toJoinedDate(): String {
     return this.toDate()?.formatToViewDateDefaults().orEmpty()
 }
 
-fun String.toDate(): Date?  {
+fun String.toDate(): Date? {
     val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
     return dateFormat.parse(this)
 }
 
+@SuppressLint("DefaultLocale")
 fun Date.formatToViewDateDefaults(): String {
-    val sdf= SimpleDateFormat.getDateInstance(DateFormat.LONG , Locale.getDefault())
-    return sdf.format(this).capitalize(Locale.getDefault())
+    val sdf = SimpleDateFormat.getDateInstance(DateFormat.LONG, Locale.getDefault())
+    return sdf.format(this).capitalize()
 }
 
-fun Context.isDarkThemeOn(): Boolean{
+fun Context.isDarkThemeOn(): Boolean {
     return resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
 }
 
@@ -53,4 +57,20 @@ fun TabLayout.setupWithViewPager2(viewPager: ViewPager2) {
     }
     val mediator = TabLayoutMediator(this, viewPager, strategy)
     mediator.attach()
+}
+
+fun Int.dpToPixels(context: Context): Float = TypedValue.applyDimension(
+    TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), context.resources.displayMetrics
+)
+
+fun Int.dpToPixelsInt(context: Context): Int = TypedValue.applyDimension(
+    TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), context.resources.displayMetrics
+).toInt()
+
+fun View.visible(value: Boolean = true) {
+    visibility = if (value) View.VISIBLE else View.GONE
+}
+
+fun View.gone() {
+    visibility = View.GONE
 }

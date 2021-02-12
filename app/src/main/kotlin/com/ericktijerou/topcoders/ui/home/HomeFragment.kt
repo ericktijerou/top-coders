@@ -7,10 +7,14 @@ import com.ericktijerou.topcoders.R
 import com.ericktijerou.topcoders.databinding.FragmentHomeBinding
 import com.ericktijerou.topcoders.ui.home.coder.CoderHomeFragment
 import com.ericktijerou.topcoders.ui.home.repo.RepoHomeFragment
-import com.ericktijerou.topcoders.ui.util.PageTitleProvider
-import com.ericktijerou.topcoders.ui.util.dataBinding
-import com.ericktijerou.topcoders.ui.util.setupWithViewPager2
+import com.ericktijerou.topcoders.ui.util.*
+import com.ericktijerou.topcoders.util.AppBarState
+import com.ericktijerou.topcoders.util.AppBarStateChangeListener
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.appbar.MaterialToolbar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val binding: FragmentHomeBinding by dataBinding()
@@ -28,6 +32,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             )
             homePager.adapter = HomeAdapter(this@HomeFragment, items)
             tabLayout.setupWithViewPager2(homePager)
+            val mainAppbar = requireActivity().findViewById<AppBarLayout>(R.id.mainAppBar)
+            homeAppBar.addOnOffsetChangedListener(object : AppBarStateChangeListener() {
+                override fun onStateChanged(appBarLayout: AppBarLayout, state: Int) {
+                    when (state) {
+                        AppBarState.COLLAPSED -> {
+                            binding.homeAppBar.elevation = 0f
+                            mainAppbar.elevation = 4.dpToPixels(requireContext())
+                        }
+                        else -> {
+                            binding.homeAppBar.elevation = 4.dpToPixels(requireContext())
+                            mainAppbar.elevation = 0f
+                        }
+                    }
+                }
+            })
         }
     }
 
