@@ -4,5 +4,6 @@
     <string name="label_joined_on">Se unió el %s</string>
     <string name="label_home">Inicio</string>
     <string name="label_coder">Desarollador</string>
-    <string name="label_repo">Foo</string>
+    <string name="label_repo">Repo</string>
+    <string name="label_repo_title">%1$s/%2$s</string>
 </resources>
