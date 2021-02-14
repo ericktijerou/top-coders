@@ -6,6 +6,7 @@ query SearchUsers($size: Int!, $cursor: String, $queryString:String!) {
         }
         nodes {
             ... on User {
+                id
                 name
                 login
                 avatarUrl

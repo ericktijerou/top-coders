@@ -26,4 +26,8 @@ object PersistenceModule {
     @Singleton
     @Provides
     fun provideUserDao(database: TopCodersDatabase) = database.userDao()
+
+    @Singleton
+    @Provides
+    fun provideRepoDao(database: TopCodersDatabase) = database.repositoryDao()
 }

@@ -11,6 +11,7 @@ class PreferencesHelper @Inject constructor(context: Context) {
         private const val PREF_PACKAGE_NAME = "com.ericktijerou.topcoders.preferences"
         private const val PREF_KEY_LAST_CACHE = "last_cache"
         private const val PREF_KEY_LAST_USER_CURSOR = "last_user_cursor"
+        private const val PREF_KEY_LAST_REPOSITORY_CURSOR = "last_repository_cursor"
     }
 
     private val pref: SharedPreferences
@@ -26,4 +27,8 @@ class PreferencesHelper @Inject constructor(context: Context) {
     var lastUserCursor: String?
         get() = pref.getString(PREF_KEY_LAST_USER_CURSOR, EMPTY)
         set(lastCursor) = pref.edit().putString(PREF_KEY_LAST_USER_CURSOR, lastCursor).apply()
+
+    var lastRepositoryCursor: String?
+        get() = pref.getString(PREF_KEY_LAST_REPOSITORY_CURSOR, EMPTY)
+        set(lastCursor) = pref.edit().putString(PREF_KEY_LAST_REPOSITORY_CURSOR, lastCursor).apply()
 }

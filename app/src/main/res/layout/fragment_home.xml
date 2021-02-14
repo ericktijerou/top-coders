@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_scrollFlags="scroll|enterAlways"
-                app:tabGravity="center"/>
+                app:tabGravity="center" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -28,7 +28,7 @@
             android:id="@+id/home_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

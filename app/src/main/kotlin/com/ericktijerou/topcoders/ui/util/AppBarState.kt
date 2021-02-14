@@ -1,4 +1,4 @@
-package com.ericktijerou.topcoders.util
+package com.ericktijerou.topcoders.ui.util
 
 import androidx.annotation.IntDef
 

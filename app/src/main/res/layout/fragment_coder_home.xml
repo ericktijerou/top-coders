@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:overScrollMode="never"
-                android:scrollbars="none"/>
+                android:scrollbars="none" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

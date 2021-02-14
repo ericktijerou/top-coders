@@ -6,10 +6,10 @@ import androidx.databinding.BindingAdapter
 import coil.load
 
 object BindingAdapters {
-    @BindingAdapter("app:avatarUrl")
+    @BindingAdapter("app:loadUrl")
     @JvmStatic
-    fun avatarUrl(view: ImageView, avatarUrl: String) {
-        view.load(avatarUrl)
+    fun loadUrl(view: ImageView, url: String) {
+        view.load(url)
     }
 
     @BindingAdapter("app:src")

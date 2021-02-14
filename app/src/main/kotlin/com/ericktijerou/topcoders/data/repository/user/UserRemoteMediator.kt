@@ -1,4 +1,4 @@
-package com.ericktijerou.topcoders.data.repository
+package com.ericktijerou.topcoders.data.repository.user
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType

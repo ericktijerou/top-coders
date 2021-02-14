@@ -7,11 +7,13 @@ import com.ericktijerou.topcoders.R
 import com.ericktijerou.topcoders.databinding.FragmentHomeBinding
 import com.ericktijerou.topcoders.ui.home.coder.CoderHomeFragment
 import com.ericktijerou.topcoders.ui.home.repo.RepoHomeFragment
-import com.ericktijerou.topcoders.ui.util.*
-import com.ericktijerou.topcoders.util.AppBarState
-import com.ericktijerou.topcoders.util.AppBarStateChangeListener
+import com.ericktijerou.topcoders.ui.util.PageTitleProvider
+import com.ericktijerou.topcoders.ui.util.dataBinding
+import com.ericktijerou.topcoders.ui.util.dpToPixels
+import com.ericktijerou.topcoders.ui.util.setupWithViewPager2
+import com.ericktijerou.topcoders.ui.util.AppBarState
+import com.ericktijerou.topcoders.ui.util.AppBarStateChangeListener
 import com.google.android.material.appbar.AppBarLayout
-import com.google.android.material.appbar.MaterialToolbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,10 +28,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun initViewPager() {
         with(binding) {
-            val items = listOf(
+            val items = listOf<Pair<String, Fragment>>(
                 getString(R.string.label_coder) to CoderHomeFragment(),
                 getString(R.string.label_repo) to RepoHomeFragment()
             )
+            homePager.offscreenPageLimit = 2
             homePager.adapter = HomeAdapter(this@HomeFragment, items)
             tabLayout.setupWithViewPager2(homePager)
             val mainAppbar = requireActivity().findViewById<AppBarLayout>(R.id.mainAppBar)

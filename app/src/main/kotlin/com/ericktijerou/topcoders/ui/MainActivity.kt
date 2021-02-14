@@ -39,8 +39,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 isUserInputEnabled = false
                 adapter = MainPagerAdapter(
                     this@MainActivity,
-                    listOf(HomeFragment(),
-                        RepoHomeFragment(), SecondFragment())
+                    listOf(
+                        HomeFragment(),
+                        RepoHomeFragment(), SecondFragment()
+                    )
                 )
                 registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                     override fun onPageSelected(position: Int) {

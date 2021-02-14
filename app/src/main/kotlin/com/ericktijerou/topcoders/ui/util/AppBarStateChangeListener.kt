@@ -1,29 +1,39 @@
-package com.ericktijerou.topcoders.util
+package com.ericktijerou.topcoders.ui.util
 
 import com.google.android.material.appbar.AppBarLayout
 
 abstract class AppBarStateChangeListener : AppBarLayout.OnOffsetChangedListener {
-    private var mCurrentState = AppBarState.IDLE
+    private var mCurrentState =
+        AppBarState.IDLE
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout, verticalOffset: Int) {
         when {
             verticalOffset == 0 -> {
                 if (mCurrentState != AppBarState.EXPANDED) {
-                    onStateChanged(appBarLayout, AppBarState.EXPANDED)
+                    onStateChanged(appBarLayout,
+                        AppBarState.EXPANDED
+                    )
                 }
-                mCurrentState = AppBarState.EXPANDED
+                mCurrentState =
+                    AppBarState.EXPANDED
             }
             Math.abs(verticalOffset) >= appBarLayout.totalScrollRange -> {
                 if (mCurrentState != AppBarState.COLLAPSED) {
-                    onStateChanged(appBarLayout, AppBarState.COLLAPSED)
+                    onStateChanged(appBarLayout,
+                        AppBarState.COLLAPSED
+                    )
                 }
-                mCurrentState = AppBarState.COLLAPSED
+                mCurrentState =
+                    AppBarState.COLLAPSED
             }
             else -> {
                 if (mCurrentState != AppBarState.IDLE) {
-                    onStateChanged(appBarLayout, AppBarState.IDLE)
+                    onStateChanged(appBarLayout,
+                        AppBarState.IDLE
+                    )
                 }
-                mCurrentState = AppBarState.IDLE
+                mCurrentState =
+                    AppBarState.IDLE
             }
         }
     }

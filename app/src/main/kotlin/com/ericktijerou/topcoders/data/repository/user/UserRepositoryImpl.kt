@@ -1,4 +1,4 @@
-package com.ericktijerou.topcoders.data.repository
+package com.ericktijerou.topcoders.data.repository.user
 
 import androidx.paging.*
 import com.ericktijerou.topcoders.data.local.UserDataStore
@@ -28,7 +28,11 @@ class UserRepositoryImpl @Inject constructor(
         return Pager(
             config = getDefaultPageConfig(),
             pagingSourceFactory = pagingSourceFactory,
-            remoteMediator = UserRemoteMediator(local, remote, location)
+            remoteMediator = UserRemoteMediator(
+                local,
+                remote,
+                location
+            )
         ).flow.map { pagingData -> pagingData.map { it.toDomain() } }
     }
 }

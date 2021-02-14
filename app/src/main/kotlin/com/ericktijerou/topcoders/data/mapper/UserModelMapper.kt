@@ -4,6 +4,7 @@ import com.ericktijerou.topcoders.data.entity.UserModel
 import com.ericktijerou.topcoders.data.local.entity.UserEntity
 
 fun UserModel.toLocal() = UserEntity(
+    id = id,
     name = name,
     username = username,
     avatarUrl = avatarUrl,
