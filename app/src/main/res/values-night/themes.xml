@@ -12,4 +12,12 @@
     </style>
 
     <style name="Theme.Topcoders.Main" parent="Theme.Topcoders" />
+
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Toolbar" parent="">
+        <item name="colorPrimary">@color/blackLight</item>
+    </style>
 </resources>
