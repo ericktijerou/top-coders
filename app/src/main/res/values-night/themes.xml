@@ -8,7 +8,7 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <item name="fontFamily">@font/lato_fonts_family</item>
-        <item name="android:windowBackground">?attr/colorPrimary</item>
+        <item name="android:windowBackground">@color/windowBackgroundDark</item>
     </style>
 
     <style name="Theme.Topcoders.Main" parent="Theme.Topcoders" />

@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="blackLight">#161617</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="windowBackgroundLight">#F2F3F5</color>
+    <color name="windowBackgroundDark">#0A0A0A</color>
 </resources>

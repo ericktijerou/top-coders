@@ -14,6 +14,7 @@ import com.ericktijerou.topcoders.ui.entity.CoderView
 import com.ericktijerou.topcoders.ui.home.coder.adapter.CoderItemListener
 import com.ericktijerou.topcoders.ui.home.coder.adapter.CoderListAdapter
 import com.ericktijerou.topcoders.ui.home.coder.adapter.CoderLoadStateAdapter
+import com.ericktijerou.topcoders.ui.util.MarginItemDecoration
 import com.ericktijerou.topcoders.ui.util.dataBinding
 import com.ericktijerou.topcoders.ui.util.showErrorMessage
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,10 +45,7 @@ class CoderHomeFragment : Fragment(R.layout.fragment_coder_home), CoderItemListe
             srlRefresh.setOnRefreshListener(this@CoderHomeFragment)
             initAdapterLoadingState()
             rvUsers.addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.VERTICAL
-                )
+                MarginItemDecoration(R.dimen.spacing_small)
             )
             rvUsers.adapter =
                 adapter.withLoadStateFooter(footer = CoderLoadStateAdapter { adapter.retry() })
