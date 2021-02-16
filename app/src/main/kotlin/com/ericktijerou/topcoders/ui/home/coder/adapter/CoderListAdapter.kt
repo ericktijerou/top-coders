@@ -17,7 +17,7 @@ class CoderListAdapter(private val listener: CoderItemListener) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position)
         item?.let {
-            (holder as CoderItemViewHolder).bind(it, listener)
+            (holder as CoderItemViewHolder).bind(position, it, listener)
         }
     }
 

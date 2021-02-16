@@ -5,5 +5,5 @@ import com.ericktijerou.topcoders.domain.entity.User
 import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {
-    fun getUserListByLocation(location: String): Flow<PagingData<User>>
+    fun getUserList(query: String): Flow<PagingData<User>>
 }

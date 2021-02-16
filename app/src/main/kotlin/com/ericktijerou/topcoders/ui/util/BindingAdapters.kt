@@ -1,7 +1,9 @@
 package com.ericktijerou.topcoders.ui.util
 
 import android.graphics.Color
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import coil.load
@@ -28,5 +30,12 @@ object BindingAdapters {
             view.context.getAttributeColor(android.R.attr.textColorSecondary)
         }
         view.setBackgroundColor(colorInt)
+    }
+
+    @BindingAdapter("app:text")
+    @JvmStatic
+    fun text(view: TextView, value: String) {
+        view.visible(value.isNotEmpty())
+        view.text = value
     }
 }

@@ -14,7 +14,7 @@ import java.io.IOException
 class UserRemoteMediator(
     private val local: UserDataStore,
     private val remote: UserCloudStore,
-    private val location: String
+    private val query: String
 ) : RemoteMediator<Int, UserEntity>() {
 
     override suspend fun load(
@@ -26,10 +26,10 @@ class UserRemoteMediator(
             else -> pageKeyData as? String
         }
         return try {
-            val (pageInfo, userList) = remote.getUserListByLocation(
+            val (pageInfo, userList) = remote.getUserList(
                 cursor,
                 state.config.pageSize,
-                location
+                query
             )
             local.doOperationInTransaction {
                 if (loadType == LoadType.REFRESH) local.clearUsers()

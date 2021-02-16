@@ -18,7 +18,7 @@ class CoderViewModel @ViewModelInject constructor(
 ) : ViewModel() {
 
     val coderList: LiveData<PagingData<CoderView>> by lazy {
-        getUserListUseCase.invoke("peru").map { pagingData ->
+        getUserListUseCase.invoke("followers:>100 sort:followers-desc").map { pagingData ->
             pagingData.map { it.toView() }
         }.cachedIn(viewModelScope).asLiveData()
     }

@@ -23,7 +23,7 @@ class RepoRepositoryImpl @Inject constructor(
     }
 
     @ExperimentalPagingApi
-    override fun getRepoListByLocation(location: String): Flow<PagingData<Repo>> {
+    override fun getRepoList(query: String): Flow<PagingData<Repo>> {
         val pagingSourceFactory = { local.getRepositoryList() }
         return Pager(
             config = getDefaultPageConfig(),
@@ -31,7 +31,7 @@ class RepoRepositoryImpl @Inject constructor(
             remoteMediator = RepoRemoteMediator(
                 local,
                 remote,
-                location
+                query
             )
         ).flow.map { pagingData -> pagingData.map { it.toDomain() } }
     }

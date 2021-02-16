@@ -12,13 +12,13 @@ import javax.inject.Inject
 
 class UserCloudStore @Inject constructor(private val apolloClient: ApolloClient) {
 
-    suspend fun getUserListByLocation(
+    suspend fun getUserList(
         cursor: String?,
         pageSize: Int,
-        location: String
+        query: String
     ): Pair<PageInfoModel, List<UserModel>> {
         return apolloClient.suspendQuery(
-            SearchUsersQuery(pageSize, Input.fromNullable(cursor), "location:$location")
+            SearchUsersQuery(pageSize, Input.fromNullable(cursor), query)
         ).data?.search?.run {
             val results = nodes?.map {
                 it?.asUser?.toData()

@@ -18,7 +18,7 @@ class RepoViewModel @ViewModelInject constructor(
 ) : ViewModel() {
 
     val repoList: LiveData<PagingData<RepoView>> by lazy {
-        getRepoListUseCase.invoke("peru").map { pagingData ->
+        getRepoListUseCase.invoke("stars:>100 sort:stars-desc").map { pagingData ->
             pagingData.map { it.toView() }
         }.cachedIn(viewModelScope).asLiveData()
     }

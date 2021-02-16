@@ -23,7 +23,7 @@ class UserRepositoryImpl @Inject constructor(
     }
 
     @ExperimentalPagingApi
-    override fun getUserListByLocation(location: String): Flow<PagingData<User>> {
+    override fun getUserList(query: String): Flow<PagingData<User>> {
         val pagingSourceFactory = { local.getUserList() }
         return Pager(
             config = getDefaultPageConfig(),
@@ -31,7 +31,7 @@ class UserRepositoryImpl @Inject constructor(
             remoteMediator = UserRemoteMediator(
                 local,
                 remote,
-                location
+                query
             )
         ).flow.map { pagingData -> pagingData.map { it.toDomain() } }
     }

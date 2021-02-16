@@ -11,10 +11,11 @@ import com.ericktijerou.topcoders.ui.home.coder.adapter.CoderItemListener
 class CoderItemViewHolder(val binding: ItemCoderBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(coder: CoderView, listener: CoderItemListener?) {
+    fun bind(position: Int, coder: CoderView, listener: CoderItemListener?) {
         with(binding) {
             this.model = coder
             this.listener = listener
+            this.position = "#${position + 1}"
             executePendingBindings()
         }
     }

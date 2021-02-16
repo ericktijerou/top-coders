@@ -14,7 +14,7 @@ import java.io.IOException
 class RepoRemoteMediator(
     private val local: RepoDataStore,
     private val remote: RepoCloudStore,
-    private val location: String
+    private val query: String
 ) : RemoteMediator<Int, RepoEntity>() {
 
     override suspend fun load(
@@ -26,10 +26,10 @@ class RepoRemoteMediator(
             else -> pageKeyData as? String
         }
         return try {
-            val (pageInfo, userList) = remote.getRepoListByLocation(
+            val (pageInfo, userList) = remote.getRepoList(
                 cursor,
                 state.config.pageSize,
-                location
+                query
             )
             local.doOperationInTransaction {
                 if (loadType == LoadType.REFRESH) local.clearRepositories()

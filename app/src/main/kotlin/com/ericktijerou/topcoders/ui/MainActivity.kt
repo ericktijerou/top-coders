@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                     this@MainActivity,
                     listOf(
                         HomeFragment(),
-                        RepoHomeFragment(), SecondFragment()
+                        SecondFragment(), SecondFragment()
                     )
                 )
                 registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {

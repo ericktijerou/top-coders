@@ -5,5 +5,5 @@ import com.ericktijerou.topcoders.domain.entity.Repo
 import kotlinx.coroutines.flow.Flow
 
 interface RepoRepository {
-    fun getRepoListByLocation(location: String): Flow<PagingData<Repo>>
+    fun getRepoList(query: String): Flow<PagingData<Repo>>
 }

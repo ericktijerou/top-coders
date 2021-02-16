@@ -12,13 +12,13 @@ import javax.inject.Inject
 
 class RepoCloudStore @Inject constructor(private val apolloClient: ApolloClient) {
 
-    suspend fun getRepoListByLocation(
+    suspend fun getRepoList(
         cursor: String?,
         pageSize: Int,
-        location: String
+        query: String
     ): Pair<PageInfoModel, List<RepoModel>> {
         return apolloClient.suspendQuery(
-            SearchRepositoriesQuery(pageSize, Input.fromNullable(cursor), "location:$location")
+            SearchRepositoriesQuery(pageSize, Input.fromNullable(cursor), query)
         ).data?.search?.run {
             val results = nodes?.map {
                 it?.asRepository?.toData()
