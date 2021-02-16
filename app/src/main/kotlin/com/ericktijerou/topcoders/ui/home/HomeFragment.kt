@@ -3,16 +3,12 @@ package com.ericktijerou.topcoders.ui.home
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.ericktijerou.topcoders.R
 import com.ericktijerou.topcoders.databinding.FragmentHomeBinding
 import com.ericktijerou.topcoders.ui.home.coder.CoderHomeFragment
 import com.ericktijerou.topcoders.ui.home.repo.RepoHomeFragment
-import com.ericktijerou.topcoders.ui.util.PageTitleProvider
-import com.ericktijerou.topcoders.ui.util.dataBinding
-import com.ericktijerou.topcoders.ui.util.dpToPixels
-import com.ericktijerou.topcoders.ui.util.setupWithViewPager2
-import com.ericktijerou.topcoders.ui.util.AppBarState
-import com.ericktijerou.topcoders.ui.util.AppBarStateChangeListener
+import com.ericktijerou.topcoders.ui.util.*
 import com.google.android.material.appbar.AppBarLayout
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,14 +36,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 override fun onStateChanged(appBarLayout: AppBarLayout, state: Int) {
                     when (state) {
                         AppBarState.COLLAPSED -> {
-                            binding.homeAppBar.elevation = 0f
+                            homeAppBar.elevation = 0f
                             mainAppbar.elevation = 4.dpToPixels(requireContext())
                         }
                         else -> {
-                            binding.homeAppBar.elevation = 4.dpToPixels(requireContext())
+                            homeAppBar.elevation = 4.dpToPixels(requireContext())
                             mainAppbar.elevation = 0f
                         }
                     }
+                }
+            })
+            homePager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    homeAppBar.setExpanded(true)
                 }
             })
         }
