@@ -22,14 +22,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{()->listener.onUserClick(model)}"
-        app:cardCornerRadius="@dimen/spacing_zero"
         app:cardBackgroundColor="?attr/colorPrimary"
+        app:cardCornerRadius="@dimen/spacing_zero"
         app:cardElevation="0.5dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/spacing_medium">
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingTop="12dp"
+            android:paddingEnd="@dimen/spacing_medium"
+            android:paddingBottom="12dp">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_avatar"
@@ -69,9 +72,24 @@
                 android:textAppearance="?attr/textAppearanceSubtitle2"
                 android:textColor="?android:textColorSecondary"
                 app:layout_constraintBottom_toBottomOf="@id/tv_name"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_ranking"
                 app:layout_constraintStart_toEndOf="@id/tv_name"
                 tools:text="ericktijerou" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{position}"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?android:textColorSecondary"
+                android:textSize="@dimen/font_xs"
+                app:layout_constraintBottom_toBottomOf="@id/tv_username"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="#1" />
+
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_info"
@@ -89,23 +107,6 @@
                 app:layout_constraintStart_toEndOf="@id/ic_info"
                 app:layout_constraintTop_toTopOf="@id/ic_info"
                 tools:text="Joined on Sep 9, 2014" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_ranking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_xs"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:lines="1"
-                android:text="@{position}"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:textColor="?android:textColorSecondary"
-                android:textSize="@dimen/font_xs"
-                app:layout_constraintBottom_toBottomOf="@id/tv_info"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_info"
-                tools:text="#1" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ic_info"
@@ -132,6 +133,94 @@
                 app:layout_constraintTop_toBottomOf="@id/iv_avatar"
                 app:text="@{model.bio}"
                 tools:text="Android developer" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_dot"
+                android:layout_width="@dimen/icon_xs"
+                android:layout_height="@dimen/icon_xs"
+                app:layout_constraintBottom_toBottomOf="@id/tv_language"
+                app:layout_constraintEnd_toStartOf="@id/iv_followers"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.CircleImageView" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:layout_marginTop="@dimen/spacing_medium"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{model.name}"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?android:textColorSecondary"
+                app:layout_constraintStart_toEndOf="@id/iv_dot"
+                app:layout_constraintTop_toBottomOf="@id/tv_bio"
+                tools:text="ericktijerou" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_followers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                app:layout_constraintBottom_toBottomOf="@id/tv_stargazer"
+                app:layout_constraintEnd_toStartOf="@id/iv_stargazer"
+                app:layout_constraintStart_toEndOf="@id/iv_dot"
+                app:srcCompat="@drawable/ic_people"
+                app:tint="?android:textColorSecondary" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_followers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{model.name}"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?android:textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/tv_language"
+                app:layout_constraintStart_toEndOf="@id/iv_followers"
+                tools:text="347" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_stargazer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                app:layout_constraintBottom_toBottomOf="@id/tv_language"
+                app:layout_constraintEnd_toStartOf="@id/tv_share"
+                app:layout_constraintStart_toEndOf="@id/iv_followers"
+                app:srcCompat="@drawable/ic_star"
+                app:tint="?android:textColorSecondary" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_stargazer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{model.name}"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?android:textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/tv_language"
+                app:layout_constraintStart_toEndOf="@id/iv_stargazer"
+                tools:text="2k" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="share"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?android:textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/tv_language"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_stargazer" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
