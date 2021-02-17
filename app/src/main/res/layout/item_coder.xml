@@ -28,11 +28,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/spacing_medium"
-            android:paddingTop="12dp"
-            android:paddingEnd="@dimen/spacing_medium"
-            android:paddingBottom="12dp">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_avatar"
@@ -41,6 +37,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="@dimen/spacing_medium"
                 app:loadUrl="@{model.avatarUrl}"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.CircleImageView" />
 
@@ -86,6 +83,7 @@
                 android:textAppearance="?attr/textAppearanceSubtitle2"
                 android:textColor="?android:textColorSecondary"
                 android:textSize="@dimen/font_xs"
+                android:layout_marginEnd="@dimen/spacing_medium"
                 app:layout_constraintBottom_toBottomOf="@id/tv_username"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:text="#1" />
@@ -128,99 +126,83 @@
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:layout_marginEnd="@dimen/spacing_medium"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/iv_avatar"
                 app:layout_constraintTop_toBottomOf="@id/iv_avatar"
                 app:text="@{model.bio}"
                 tools:text="Android developer" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_dot"
-                android:layout_width="@dimen/icon_xs"
-                android:layout_height="@dimen/icon_xs"
+                android:layout_width="@dimen/icon_xxs"
+                android:layout_height="@dimen/icon_xxs"
                 app:layout_constraintBottom_toBottomOf="@id/tv_language"
-                app:layout_constraintEnd_toStartOf="@id/iv_followers"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:shapeAppearanceOverlay="@style/ShapeAppearance.CircleImageView" />
+                app:layout_constraintStart_toStartOf="@id/iv_avatar"
+                app:layout_constraintTop_toTopOf="@id/tv_language"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.CircleImageView"
+                app:textColor="@{model.languageColor}" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_language"
-                android:layout_width="wrap_content"
+                style="@style/TextAppearance.TopCoders.Option"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_xs"
-                android:layout_marginTop="@dimen/spacing_medium"
+                android:layout_marginTop="@dimen/spacing_20"
                 android:ellipsize="end"
-                android:maxLines="2"
-                android:text="@{model.name}"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:textColor="?android:textColorSecondary"
+                android:ems="5"
+                android:singleLine="true"
+                android:text="@{model.languagePrimary}"
+                app:layout_constraintEnd_toStartOf="@id/tv_followers"
                 app:layout_constraintStart_toEndOf="@id/iv_dot"
                 app:layout_constraintTop_toBottomOf="@id/tv_bio"
-                tools:text="ericktijerou" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_followers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_medium"
-                app:layout_constraintBottom_toBottomOf="@id/tv_stargazer"
-                app:layout_constraintEnd_toStartOf="@id/iv_stargazer"
-                app:layout_constraintStart_toEndOf="@id/iv_dot"
-                app:srcCompat="@drawable/ic_people"
-                app:tint="?android:textColorSecondary" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="@dimen/spacing_12"
+                tools:text="Kotlin" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_followers"
-                android:layout_width="wrap_content"
+                style="@style/TextAppearance.TopCoders.Option"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_xs"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="@{model.name}"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:textColor="?android:textColorSecondary"
+                android:drawableStart="@drawable/ic_people"
+                android:text="@{model.followersCount}"
                 app:layout_constraintBottom_toBottomOf="@id/tv_language"
-                app:layout_constraintStart_toEndOf="@id/iv_followers"
-                tools:text="347" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_stargazer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_medium"
-                app:layout_constraintBottom_toBottomOf="@id/tv_language"
-                app:layout_constraintEnd_toStartOf="@id/tv_share"
-                app:layout_constraintStart_toEndOf="@id/iv_followers"
-                app:srcCompat="@drawable/ic_star"
-                app:tint="?android:textColorSecondary" />
+                app:layout_constraintEnd_toStartOf="@id/tv_stargazer"
+                app:layout_constraintStart_toEndOf="@id/tv_language"
+                tools:text="347334" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_stargazer"
-                android:layout_width="wrap_content"
+                style="@style/TextAppearance.TopCoders.Option"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_xs"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="@{model.name}"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:textColor="?android:textColorSecondary"
+                android:drawableStart="@drawable/ic_star"
+                android:lines="1"
+                android:text="@{model.stargazerCount}"
                 app:layout_constraintBottom_toBottomOf="@id/tv_language"
-                app:layout_constraintStart_toEndOf="@id/iv_stargazer"
-                tools:text="2k" />
+                app:layout_constraintEnd_toStartOf="@id/tv_share"
+                app:layout_constraintStart_toEndOf="@id/tv_followers"
+                tools:text="222123" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_share"
+                style="@style/TextAppearance.TopCoders.Option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
+                android:drawableStart="@drawable/ic_share"
                 android:lines="1"
-                android:text="share"
-                android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:textColor="?android:textColorSecondary"
-                app:layout_constraintBottom_toBottomOf="@id/tv_language"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="@string/label_share"
+                android:paddingStart="@dimen/spacing_medium"
+                android:paddingEnd="@dimen/spacing_medium"
+                android:paddingTop="@dimen/spacing_12"
+                android:paddingBottom="@dimen/spacing_12"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/iv_stargazer" />
+                app:layout_constraintStart_toEndOf="@id/tv_stargazer" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

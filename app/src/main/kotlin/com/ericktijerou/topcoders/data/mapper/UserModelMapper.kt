@@ -10,5 +10,10 @@ fun UserModel.toLocal() = UserEntity(
     avatarUrl = avatarUrl,
     bio = bio,
     company = company,
-    createdAt = createdAt
+    createdAt = createdAt,
+    url = url,
+    followersCount = followersCount,
+    stargazerCount = stargazerCount,
+    languagePrimary = languagePrimary,
+    languageColor = languageColor
 )

@@ -1,0 +1,17 @@
+query SearchTotalStars($size: Int!, $cursor: String, $queryString:String!) {
+  search(first: $size, after:$cursor, query: $queryString, type: REPOSITORY) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      ... on Repository {
+        stargazerCount
+        primaryLanguage {
+          color
+          name
+        }
+      }
+    }
+  }
+}

@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ShapeAppearance.CircleImageView" parent="ShapeAppearance.MaterialComponents.LargeComponent">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
-
     <style name="TextAppearance.TopCoders.Option" parent="TextAppearance.MaterialComponents.Subtitle2">
-        <item name="android:textColor">@color/colorOptionLight</item>
+        <item name="android:textColor">@color/colorOptionDark</item>
         <item name="android:textSize">13sp</item>
         <item name="android:lines">1</item>
         <item name="android:textStyle">normal</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="drawableTint">@color/colorOptionLight</item>
+        <item name="drawableTint">@color/colorOptionDark</item>
         <item name="android:drawablePadding">@dimen/spacing_xs</item>
     </style>
 </resources>

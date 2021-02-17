@@ -9,5 +9,10 @@ data class CoderView(
     val bio: String,
     val hasCompany: Boolean,
     val info: String,
-    @DrawableRes val infoIcon: Int
+    @DrawableRes val infoIcon: Int,
+    val url: String,
+    val followersCount: String,
+    var stargazerCount: String,
+    var languagePrimary: String,
+    var languageColor: String
 )

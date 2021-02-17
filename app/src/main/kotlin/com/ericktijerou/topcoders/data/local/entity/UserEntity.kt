@@ -11,5 +11,10 @@ data class UserEntity(
     val avatarUrl: String,
     val bio: String,
     val company: String,
-    val createdAt: String
+    val createdAt: String,
+    val url: String,
+    val followersCount: Int,
+    val stargazerCount: Int,
+    val languagePrimary: String,
+    val languageColor: String
 )

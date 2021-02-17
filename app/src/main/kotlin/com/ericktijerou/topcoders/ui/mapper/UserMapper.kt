@@ -14,6 +14,11 @@ fun User.toView(): CoderView {
         bio = bio,
         hasCompany = hasCompany,
         info = if (hasCompany) company else createdAt.toJoinedDate(),
-        infoIcon = if (hasCompany) R.drawable.ic_business else R.drawable.ic_clock
+        infoIcon = if (hasCompany) R.drawable.ic_business else R.drawable.ic_clock,
+        url = url,
+        followersCount = followersCount.toString(),
+        stargazerCount = stargazerCount.toString(),
+        languagePrimary = languagePrimary,
+        languageColor = languageColor
     )
 }

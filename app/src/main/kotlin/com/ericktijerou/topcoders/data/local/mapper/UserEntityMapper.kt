@@ -9,5 +9,10 @@ fun UserEntity.toDomain() = User(
     avatarUrl = avatarUrl,
     bio = bio,
     company = company,
-    createdAt = createdAt
+    createdAt = createdAt,
+    url = url,
+    followersCount = followersCount,
+    stargazerCount = stargazerCount,
+    languagePrimary = languagePrimary,
+    languageColor = languageColor
 )
