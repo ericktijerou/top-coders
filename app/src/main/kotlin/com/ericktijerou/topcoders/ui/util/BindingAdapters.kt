@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import coil.load
+import com.ericktijerou.topcoders.core.NUMBER_ZERO
 
 object BindingAdapters {
     @BindingAdapter("app:loadUrl")
@@ -15,10 +16,10 @@ object BindingAdapters {
         view.load(url)
     }
 
-    @BindingAdapter("app:src")
+    @BindingAdapter("app:drawableStart")
     @JvmStatic
-    fun src(view: ImageView, @DrawableRes drawableRes: Int) {
-        view.setImageResource(drawableRes)
+    fun drawableStart(view: TextView, @DrawableRes drawableRes: Int) {
+        view.setCompoundDrawablesWithIntrinsicBounds(drawableRes, NUMBER_ZERO, NUMBER_ZERO, NUMBER_ZERO)
     }
 
     @BindingAdapter("app:textColor")
