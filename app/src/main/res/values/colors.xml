@@ -12,4 +12,5 @@
     <color name="colorOptionDark">#8B8C8F</color>
     <color name="windowBackgroundLight">#F2F3F5</color>
     <color name="windowBackgroundDark">#0A0A0A</color>
+    <color name="blue_500">#2767CF</color>
 </resources>

@@ -16,11 +16,11 @@
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
-                style="@style/Widget.MaterialComponents.TabLayout.Colored"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/spacing_xxl"
                 app:layout_scrollFlags="scroll|enterAlways"
-                app:tabGravity="center" />
+                app:tabGravity="start"
+                app:tabMode="fixed"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 

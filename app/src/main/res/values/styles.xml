@@ -14,4 +14,14 @@
         <item name="drawableTint">@color/colorOptionLight</item>
         <item name="android:drawablePadding">@dimen/spacing_xs</item>
     </style>
+
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/lato_fonts_family</item>
+        <item name="android:textSize">@dimen/font_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/lato_fonts_family</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.015625</item>
+    </style>
 </resources>
