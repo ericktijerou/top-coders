@@ -10,6 +10,8 @@ query SearchRepositories($size: Int!, $cursor: String, $queryString:String!) {
         name
         description
         url
+        updatedAt
+        openGraphImageUrl
         forks {
           totalCount
         }
@@ -19,11 +21,9 @@ query SearchRepositories($size: Int!, $cursor: String, $queryString:String!) {
         owner {
           login
         }
-        languages(first: 1) {
-          nodes {
-            name
-            color
-          }
+        primaryLanguage {
+          color
+          name
         }
       }
     }

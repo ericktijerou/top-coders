@@ -14,111 +14,135 @@
             type="com.ericktijerou.topcoders.ui.home.repo.adapter.RepoItemListener" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="@{()->listener.onRepoClick(model)}"
-        android:padding="@dimen/spacing_medium">
+        app:cardBackgroundColor="?attr/colorPrimary"
+        app:cardCornerRadius="@dimen/spacing_zero"
+        app:cardElevation="0.5dp">
 
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_name"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:lines="1"
-            android:text="@{String.format(@string/label_repo_title, model.owner, model.name)}"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Erick Tijero" />
+            android:paddingTop="@dimen/spacing_medium">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:text="@{model.description}"
-            android:layout_marginTop="@dimen/spacing_xs"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            android:textColor="?android:textColorSecondary"
-            app:layout_constraintTop_toBottomOf="@id/tv_name"
-            tools:text="ericktijerou" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{String.format(@string/label_repo_title, model.owner, model.name)}"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                tools:text="ericktijerou/koleton" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_dot"
-            android:layout_width="@dimen/icon_xs"
-            android:layout_height="@dimen/icon_xs"
-            app:layout_constraintBottom_toBottomOf="@id/tv_language"
-            app:layout_constraintStart_toStartOf="@id/tv_description"
-            app:textColor="@{model.colorLanguage}"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.CircleImageView"
-            />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{model.description}"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?android:textColorSecondary"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                app:layout_constraintStart_toStartOf="@id/tv_name"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                tools:text="Library" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_language"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:text="@{model.primaryLanguage}"
-            android:layout_marginStart="@dimen/spacing_xs"
-            android:layout_marginTop="@dimen/spacing_xs"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            android:textColor="?android:textColorSecondary"
-            app:layout_constraintTop_toBottomOf="@id/tv_description"
-            app:layout_constraintStart_toEndOf="@id/iv_dot"
-            tools:text="ericktijerou" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_dot"
+                android:layout_width="@dimen/icon_xxs"
+                android:layout_height="@dimen/icon_xxs"
+                app:layout_constraintBottom_toBottomOf="@id/tv_language"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="@id/tv_language"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.CircleImageView"
+                app:textColor="@{model.colorLanguage}" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_stargazer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_medium"
-            app:layout_constraintBottom_toBottomOf="@id/tv_language"
-            app:layout_constraintStart_toEndOf="@id/tv_language"
-            app:srcCompat="@drawable/ic_star"
-            app:tint="?android:textColorSecondary"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_language"
+                style="@style/TextAppearance.TopCoders.Option"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:layout_marginTop="@dimen/spacing_20"
+                android:layout_marginBottom="@dimen/spacing_12"
+                android:ellipsize="end"
+                android:ems="5"
+                android:singleLine="true"
+                app:primaryLanguage="@{model.primaryLanguage}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_stargazer"
+                app:layout_constraintStart_toEndOf="@id/iv_dot"
+                app:layout_constraintTop_toBottomOf="@id/tv_description"
+                tools:text="Kotlin" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_stargazer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:text="@{Integer.toString(model.stargazerCount)}"
-            android:layout_marginStart="@dimen/spacing_xs"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            android:textColor="?android:textColorSecondary"
-            app:layout_constraintTop_toTopOf="@id/tv_language"
-            app:layout_constraintStart_toEndOf="@id/iv_stargazer"
-            tools:text="2k" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_stargazer"
+                style="@style/TextAppearance.TopCoders.Option"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_star"
+                android:text="@{model.stargazerCount}"
+                app:layout_constraintBottom_toBottomOf="@id/tv_language"
+                app:layout_constraintEnd_toStartOf="@id/tv_fork"
+                app:layout_constraintStart_toEndOf="@id/tv_language"
+                tools:text="347334" />
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_fork"
+                style="@style/TextAppearance.TopCoders.Option"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_fork"
+                android:lines="1"
+                android:text="@{model.forkCount}"
+                app:layout_constraintBottom_toBottomOf="@id/tv_language"
+                app:layout_constraintEnd_toStartOf="@id/tv_share"
+                app:layout_constraintStart_toEndOf="@id/tv_stargazer"
+                tools:text="222123" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_fork"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_medium"
-            app:layout_constraintBottom_toBottomOf="@id/tv_stargazer"
-            app:layout_constraintStart_toEndOf="@id/tv_stargazer"
-            app:srcCompat="@drawable/ic_fork"
-            app:tint="?android:textColorSecondary"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_share"
+                style="@style/TextAppearance.TopCoders.Option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:drawableStart="@drawable/ic_share"
+                android:gravity="center"
+                android:lines="1"
+                android:paddingStart="@dimen/spacing_medium"
+                android:paddingTop="@dimen/spacing_12"
+                android:paddingEnd="@dimen/spacing_medium"
+                android:paddingBottom="@dimen/spacing_12"
+                android:text="@string/label_share"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_fork" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_fork"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:text="@{Integer.toString(model.forkCount)}"
-            android:layout_marginStart="@dimen/spacing_xs"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            android:textColor="?android:textColorSecondary"
-            app:layout_constraintTop_toTopOf="@id/tv_stargazer"
-            app:layout_constraintStart_toEndOf="@id/iv_fork"
-            tools:text="347" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/spacing_medium" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/spacing_medium" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
 </layout>

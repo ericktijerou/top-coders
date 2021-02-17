@@ -4,8 +4,8 @@ data class RepoView(
     val id: String,
     val name: String,
     val description: String,
-    val forkCount: Int,
-    val stargazerCount: Int,
+    val forkCount: String,
+    val stargazerCount: String,
     val owner: String,
     val primaryLanguage: String,
     val colorLanguage: String

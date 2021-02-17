@@ -10,6 +10,7 @@
         <item name="fontFamily">@font/lato_fonts_family</item>
         <item name="android:windowBackground">@color/windowBackgroundDark</item>
         <item name="tabStyle">@style/Widget.App.TabLayout</item>
+        <item name="textColorOption">@color/colorOptionDark</item>
     </style>
 
     <style name="Theme.Topcoders.Main" parent="Theme.Topcoders" />

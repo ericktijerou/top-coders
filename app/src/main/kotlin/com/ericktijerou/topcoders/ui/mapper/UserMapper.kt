@@ -18,7 +18,7 @@ fun User.toView(): CoderView {
         url = url,
         followersCount = followersCount.toString(),
         stargazerCount = stargazerCount.toString(),
-        languagePrimary = languagePrimary,
-        languageColor = languageColor
+        primaryLanguage = languagePrimary,
+        colorLanguage = languageColor
     )
 }

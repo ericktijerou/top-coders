@@ -7,4 +7,5 @@
     <string name="label_repo">Repo</string>
     <string name="label_repo_title">%1$s/%2$s</string>
     <string name="label_share">Compartir</string>
+    <string name="label_undefined">Indefinido</string>
 </resources>

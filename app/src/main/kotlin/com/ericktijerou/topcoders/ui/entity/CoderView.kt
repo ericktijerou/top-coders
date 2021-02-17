@@ -13,6 +13,6 @@ data class CoderView(
     val url: String,
     val followersCount: String,
     var stargazerCount: String,
-    var languagePrimary: String,
-    var languageColor: String
+    var primaryLanguage: String,
+    var colorLanguage: String
 )

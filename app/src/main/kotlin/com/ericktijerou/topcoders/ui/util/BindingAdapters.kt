@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import coil.load
+import com.ericktijerou.topcoders.R
 import com.ericktijerou.topcoders.core.NUMBER_ZERO
 
 object BindingAdapters {
@@ -28,7 +29,7 @@ object BindingAdapters {
         val colorInt = if (color.isNotEmpty()) {
             Color.parseColor(color)
         } else {
-            view.context.getAttributeColor(android.R.attr.textColorSecondary)
+            view.context.getAttributeColor(R.attr.textColorOption)
         }
         view.setBackgroundColor(colorInt)
     }
@@ -38,5 +39,12 @@ object BindingAdapters {
     fun text(view: TextView, value: String) {
         view.visible(value.isNotEmpty())
         view.text = value
+    }
+
+    @BindingAdapter("app:primaryLanguage")
+    @JvmStatic
+    fun primaryLanguage(view: TextView, value: String) {
+        val text = if (value.isNotEmpty()) value else view.context.getString(R.string.label_undefined)
+        view.text = text
     }
 }

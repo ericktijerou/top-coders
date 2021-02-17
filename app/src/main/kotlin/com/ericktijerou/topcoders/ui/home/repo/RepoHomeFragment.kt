@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.observe
 import androidx.paging.LoadState
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ericktijerou.topcoders.R
 import com.ericktijerou.topcoders.databinding.FragmentRepoHomeBinding
@@ -14,6 +12,7 @@ import com.ericktijerou.topcoders.ui.entity.RepoView
 import com.ericktijerou.topcoders.ui.home.coder.adapter.CoderLoadStateAdapter
 import com.ericktijerou.topcoders.ui.home.repo.adapter.RepoItemListener
 import com.ericktijerou.topcoders.ui.home.repo.adapter.RepoListAdapter
+import com.ericktijerou.topcoders.ui.util.MarginItemDecoration
 import com.ericktijerou.topcoders.ui.util.dataBinding
 import com.ericktijerou.topcoders.ui.util.showErrorMessage
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,10 +43,7 @@ class RepoHomeFragment : Fragment(R.layout.fragment_repo_home), RepoItemListener
             srlRefresh.setOnRefreshListener(this@RepoHomeFragment)
             initAdapterLoadingState()
             rvRepos.addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.VERTICAL
-                )
+                MarginItemDecoration(R.dimen.spacing_small)
             )
             rvRepos.adapter =
                 adapter.withLoadStateFooter(footer = CoderLoadStateAdapter { adapter.retry() })

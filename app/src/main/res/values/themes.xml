@@ -9,6 +9,7 @@
         <item name="fontFamily">@font/lato_fonts_family</item>
         <item name="android:windowBackground">@color/windowBackgroundLight</item>
         <item name="tabStyle">@style/Widget.App.TabLayout</item>
+        <item name="textColorOption">@color/colorOptionLight</item>
     </style>
 
     <style name="Theme.Topcoders.Main" parent="Theme.Topcoders" />
