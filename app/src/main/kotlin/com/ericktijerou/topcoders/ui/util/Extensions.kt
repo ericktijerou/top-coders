@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Build
+import android.text.format.DateUtils
 import android.util.TypedValue
 import android.view.View
 import android.widget.Toast
@@ -73,4 +74,41 @@ fun View.visible(value: Boolean = true) {
 
 fun View.gone() {
     visibility = View.GONE
+}
+
+fun String.toRelativeTime(): String {
+    val now = Date().time
+    val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+    dateFormat.timeZone = TimeZone.getTimeZone("GMT")
+    val date = dateFormat.parse(this)
+    val timeInMilliseconds = date?.time ?: 0
+    val difference = now - timeInMilliseconds
+    val relativeTime = when {
+        difference < DateUtils.MINUTE_IN_MILLIS -> DateUtils.getRelativeTimeSpanString(
+            timeInMilliseconds,
+            now,
+            DateUtils.SECOND_IN_MILLIS
+        )
+        difference < DateUtils.HOUR_IN_MILLIS -> DateUtils.getRelativeTimeSpanString(
+            timeInMilliseconds,
+            now,
+            DateUtils.MINUTE_IN_MILLIS
+        )
+        difference < DateUtils.DAY_IN_MILLIS -> DateUtils.getRelativeTimeSpanString(
+            timeInMilliseconds,
+            now,
+            DateUtils.HOUR_IN_MILLIS
+        )
+        difference < DateUtils.WEEK_IN_MILLIS -> DateUtils.getRelativeTimeSpanString(
+            timeInMilliseconds,
+            now,
+            DateUtils.DAY_IN_MILLIS
+        )
+        else -> DateUtils.getRelativeTimeSpanString(
+            timeInMilliseconds,
+            now,
+            DateUtils.WEEK_IN_MILLIS
+        )
+    }
+    return relativeTime.toString()
 }

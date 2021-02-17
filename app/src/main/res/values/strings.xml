@@ -4,7 +4,8 @@
     <string name="label_home">Home</string>
     <string name="label_coder">Coder</string>
     <string name="label_repo">Repo</string>
-    <string name="label_repo_title">%1$s/%2$s</string>
+    <string name="label_repo_title">%1$s / %2$s</string>
     <string name="label_share">Share</string>
     <string name="label_undefined">Undefined</string>
+    <string name="label_updated">Updated %s</string>
 </resources>

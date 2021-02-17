@@ -11,5 +11,7 @@ fun RepoEntity.toDomain() = Repo(
     stargazerCount = stargazerCount,
     owner = owner,
     primaryLanguage = primaryLanguage,
-    colorLanguage = colorLanguage
+    colorLanguage = colorLanguage,
+    socialImage = socialImage,
+    updatedAt = updatedAt
 )

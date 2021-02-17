@@ -11,5 +11,7 @@ fun RepoModel.toLocal() = RepoEntity(
     stargazerCount = stargazerCount,
     owner = owner,
     primaryLanguage = primaryLanguage,
-    colorLanguage = colorLanguage
+    colorLanguage = colorLanguage,
+    socialImage = socialImage,
+    updatedAt = updatedAt
 )

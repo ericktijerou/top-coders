@@ -27,6 +27,17 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/spacing_medium">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_social"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toBottomOf="@id/tv_description"
+                app:loadUrl="@{model.socialImage}"
+                tools:layout_height="140dp"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_name"
                 android:layout_width="0dp"
@@ -36,10 +47,30 @@
                 android:text="@{String.format(@string/label_repo_title, model.owner, model.name)}"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
                 android:textStyle="bold"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="ericktijerou/koleton" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_updated_at"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/spacing_xs"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="@{String.format(@string/label_updated, model.updatedAt)}"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?android:textColorSecondary"
+                android:textSize="@dimen/font_xs"
+                android:drawableStart="@drawable/ic_clock"
+                app:drawableTint="?android:textColorSecondary"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/tv_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                tools:text="Updated 4 minutes ago" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_description"
@@ -47,13 +78,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xs"
                 android:ellipsize="end"
-                android:maxLines="2"
+                android:maxLines="3"
+                android:paddingBottom="@dimen/spacing_small"
                 android:text="@{model.description}"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
-                android:textColor="?android:textColorSecondary"
-                app:layout_constraintTop_toBottomOf="@id/tv_name"
-                app:layout_constraintStart_toStartOf="@id/tv_name"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/tv_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_updated_at"
                 tools:text="Library" />
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -72,16 +103,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_xs"
-                android:layout_marginTop="@dimen/spacing_20"
+                android:layout_marginTop="@dimen/spacing_12"
                 android:layout_marginBottom="@dimen/spacing_12"
                 android:ellipsize="end"
                 android:ems="5"
                 android:singleLine="true"
-                app:primaryLanguage="@{model.primaryLanguage}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tv_stargazer"
                 app:layout_constraintStart_toEndOf="@id/iv_dot"
-                app:layout_constraintTop_toBottomOf="@id/tv_description"
+                app:layout_constraintTop_toBottomOf="@id/iv_social"
+                app:primaryLanguage="@{model.primaryLanguage}"
                 tools:text="Kotlin" />
 
             <com.google.android.material.textview.MaterialTextView

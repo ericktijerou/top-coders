@@ -1,7 +1,6 @@
 package com.ericktijerou.topcoders.ui.util
 
 import android.graphics.Color
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.DrawableRes
@@ -14,6 +13,7 @@ object BindingAdapters {
     @BindingAdapter("app:loadUrl")
     @JvmStatic
     fun loadUrl(view: ImageView, url: String) {
+        view.visible(url.isNotEmpty())
         view.load(url)
     }
 

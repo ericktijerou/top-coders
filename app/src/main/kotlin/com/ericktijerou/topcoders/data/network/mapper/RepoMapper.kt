@@ -2,6 +2,7 @@ package com.ericktijerou.topcoders.data.network.mapper
 
 import com.ericktijerou.SearchRepositoriesQuery
 import com.ericktijerou.topcoders.data.entity.RepoModel
+import com.ericktijerou.topcoders.data.network.util.asString
 
 fun SearchRepositoriesQuery.AsRepository.toData(): RepoModel {
     return RepoModel(
@@ -12,6 +13,8 @@ fun SearchRepositoriesQuery.AsRepository.toData(): RepoModel {
         stargazerCount = stargazers.totalCount,
         owner = owner.login,
         primaryLanguage = primaryLanguage?.name.orEmpty(),
-        colorLanguage = primaryLanguage?.color.orEmpty()
+        colorLanguage = primaryLanguage?.color.orEmpty(),
+        updatedAt = updatedAt.asString(),
+        socialImage = openGraphImageUrl.asString()
     )
 }

@@ -12,5 +12,7 @@ data class RepoEntity(
     val stargazerCount: Int,
     val owner: String,
     val primaryLanguage: String,
-    val colorLanguage: String
+    val colorLanguage: String,
+    val socialImage: String,
+    val updatedAt: String
 )
