@@ -32,4 +32,5 @@
     <dimen name="spacing_12">12dp</dimen>
     <dimen name="spacing_10">10dp</dimen>
     <dimen name="spacing_20">20dp</dimen>
+    <dimen name="action_bar_size">52dp</dimen>
 </resources>
