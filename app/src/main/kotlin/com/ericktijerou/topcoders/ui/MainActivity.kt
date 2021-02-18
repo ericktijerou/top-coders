@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -13,15 +14,13 @@ import androidx.viewpager2.widget.ViewPager2
 import com.ericktijerou.topcoders.R
 import com.ericktijerou.topcoders.databinding.ActivityMainBinding
 import com.ericktijerou.topcoders.ui.home.HomeFragment
-import com.ericktijerou.topcoders.ui.home.repo.RepoHomeFragment
-import com.ericktijerou.topcoders.ui.util.dataBinding
-import com.ericktijerou.topcoders.ui.util.getAttributeColor
-import com.ericktijerou.topcoders.ui.util.isDarkThemeOn
-import com.ericktijerou.topcoders.ui.util.isOreo
+import com.ericktijerou.topcoders.ui.util.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
+
+    private val sharedViewModel: SharedViewModel by viewModels()
 
     private val binding: ActivityMainBinding by dataBinding()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +40,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                     this@MainActivity,
                     listOf(
                         HomeFragment(),
-                        SecondFragment(), SecondFragment()
+                        SecondFragment(),
+                        SecondFragment()
                     )
                 )
                 registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -64,6 +64,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 }
                 true
             }
+            navigationView.setOnNavigationItemReselectedListener {
+                when (it.itemId) {
+                    R.id.homeFragment -> sharedViewModel.setNavigationItem(0)
+                }
+            }
         }
     }
 
@@ -85,7 +90,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         decorView.systemUiVisibility = sysUiVis or decorFitsFlags
     }
 
-    private inner class MainPagerAdapter(fa: FragmentActivity, private val items: List<Fragment>) :
+    private inner class MainPagerAdapter(
+        fa: FragmentActivity,
+        private val items: List<Fragment>
+    ) :
         FragmentStateAdapter(fa) {
 
         override fun getItemCount(): Int = items.size

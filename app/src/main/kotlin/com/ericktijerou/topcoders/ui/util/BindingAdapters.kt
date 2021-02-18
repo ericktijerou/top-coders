@@ -12,21 +12,23 @@ import com.ericktijerou.topcoders.core.NUMBER_ZERO
 object BindingAdapters {
     @BindingAdapter("app:loadUrl")
     @JvmStatic
-    fun loadUrl(view: ImageView, url: String) {
-        view.visible(url.isNotEmpty())
+    fun loadUrl(view: ImageView, url: String?) {
+        view.visible(!url.isNullOrEmpty())
         view.load(url)
     }
 
     @BindingAdapter("app:drawableStart")
     @JvmStatic
-    fun drawableStart(view: TextView, @DrawableRes drawableRes: Int) {
-        view.setCompoundDrawablesWithIntrinsicBounds(drawableRes, NUMBER_ZERO, NUMBER_ZERO, NUMBER_ZERO)
+    fun drawableStart(view: TextView, @DrawableRes drawableRes: Int?) {
+        drawableRes?.let {
+            view.setCompoundDrawablesWithIntrinsicBounds(it, NUMBER_ZERO, NUMBER_ZERO, NUMBER_ZERO)
+        }
     }
 
     @BindingAdapter("app:textColor")
     @JvmStatic
-    fun textColor(view: ImageView, color: String) {
-        val colorInt = if (color.isNotEmpty()) {
+    fun textColor(view: ImageView, color: String?) {
+        val colorInt = if (!color.isNullOrEmpty()) {
             Color.parseColor(color)
         } else {
             view.context.getAttributeColor(R.attr.textColorOption)
@@ -36,15 +38,16 @@ object BindingAdapters {
 
     @BindingAdapter("app:text")
     @JvmStatic
-    fun text(view: TextView, value: String) {
-        view.visible(value.isNotEmpty())
+    fun text(view: TextView, value: String?) {
+        view.visible(!value.isNullOrEmpty())
         view.text = value
     }
 
     @BindingAdapter("app:primaryLanguage")
     @JvmStatic
-    fun primaryLanguage(view: TextView, value: String) {
-        val text = if (value.isNotEmpty()) value else view.context.getString(R.string.label_undefined)
+    fun primaryLanguage(view: TextView, value: String?) {
+        val text =
+            if (!value.isNullOrEmpty()) value else view.context.getString(R.string.label_undefined)
         view.text = text
     }
 }

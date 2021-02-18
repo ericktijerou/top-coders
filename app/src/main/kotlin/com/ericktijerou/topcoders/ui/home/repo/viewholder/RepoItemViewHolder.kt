@@ -11,10 +11,11 @@ import com.ericktijerou.topcoders.ui.home.repo.adapter.RepoItemListener
 class RepoItemViewHolder(val binding: ItemRepoBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(repo: RepoView, listener: RepoItemListener?) {
+    fun bind(position: Int, repo: RepoView, listener: RepoItemListener?) {
         with(binding) {
             this.model = repo
             this.listener = listener
+            this.position = "#${position + 1}"
             executePendingBindings()
         }
     }

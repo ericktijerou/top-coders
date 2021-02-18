@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="position"
+            type="String" />
+
+        <variable
             name="model"
             type="com.ericktijerou.topcoders.ui.entity.RepoView" />
 
@@ -47,25 +51,41 @@
                 android:text="@{String.format(@string/label_repo_title, model.owner, model.name)}"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintEnd_toStartOf="@id/tv_ranking"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="ericktijerou/koleton" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{position}"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?android:textColorSecondary"
+                android:textSize="@dimen/font_xs"
+                app:layout_constraintBottom_toBottomOf="@id/tv_name"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintTop_toTopOf="@id/tv_name"
+                tools:text="#1" />
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_updated_at"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:drawableStart="@drawable/ic_clock"
                 android:drawablePadding="@dimen/spacing_xs"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:lines="1"
-                android:layout_marginTop="@dimen/spacing_xs"
                 android:text="@{String.format(@string/label_updated, model.updatedAt)}"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
                 android:textColor="?android:textColorSecondary"
                 android:textSize="@dimen/font_xs"
-                android:drawableStart="@drawable/ic_clock"
                 app:drawableTint="?android:textColorSecondary"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"
                 app:layout_constraintStart_toStartOf="@id/tv_name"
@@ -76,7 +96,7 @@
                 android:id="@+id/tv_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_xs"
+                android:layout_marginTop="@dimen/spacing_small"
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:paddingBottom="@dimen/spacing_small"

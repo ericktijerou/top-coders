@@ -52,7 +52,9 @@ class UserCloudStore @Inject constructor(private val apolloClient: ApolloClient)
                 }
                 stargazerCount += repo?.stargazerCount.orZero()
             }
-            val language = languageList.groupBy { language -> language.name }.values.maxByOrNull { it.size }?.first()
+            val language =
+                languageList.groupBy { language -> language.name }.values.maxByOrNull { it.size }
+                    ?.first()
             node?.asUser?.toData()?.apply {
                 this.stargazerCount = stargazerCount
                 this.languagePrimary = language?.name.orEmpty()

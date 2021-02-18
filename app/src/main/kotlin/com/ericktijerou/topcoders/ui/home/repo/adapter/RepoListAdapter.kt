@@ -17,7 +17,7 @@ class RepoListAdapter(private val listener: RepoItemListener) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position)
         item?.let {
-            (holder as RepoItemViewHolder).bind(it, listener)
+            (holder as RepoItemViewHolder).bind(position, it, listener)
         }
     }
 

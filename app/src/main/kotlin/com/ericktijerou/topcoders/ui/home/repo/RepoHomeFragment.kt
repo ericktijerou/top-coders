@@ -2,28 +2,28 @@ package com.ericktijerou.topcoders.ui.home.repo
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ericktijerou.topcoders.R
-import com.ericktijerou.topcoders.databinding.FragmentRepoHomeBinding
 import com.ericktijerou.topcoders.ui.entity.RepoView
 import com.ericktijerou.topcoders.ui.home.coder.adapter.CoderLoadStateAdapter
 import com.ericktijerou.topcoders.ui.home.repo.adapter.RepoItemListener
 import com.ericktijerou.topcoders.ui.home.repo.adapter.RepoListAdapter
+import com.ericktijerou.topcoders.ui.home.shared.PageHomeFragment
+import com.ericktijerou.topcoders.ui.util.HomePageType
 import com.ericktijerou.topcoders.ui.util.MarginItemDecoration
-import com.ericktijerou.topcoders.ui.util.dataBinding
+import com.ericktijerou.topcoders.ui.util.ScrollingLinearLayoutManager
 import com.ericktijerou.topcoders.ui.util.showErrorMessage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RepoHomeFragment : Fragment(R.layout.fragment_repo_home), RepoItemListener,
+class RepoHomeFragment : PageHomeFragment(), RepoItemListener,
     SwipeRefreshLayout.OnRefreshListener {
 
     private val viewModel: RepoViewModel by viewModels()
-    private val binding: FragmentRepoHomeBinding by dataBinding()
     private val adapter: RepoListAdapter = RepoListAdapter(this)
+    override val pageType: Int get() = HomePageType.HOME_REPO
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -42,10 +42,11 @@ class RepoHomeFragment : Fragment(R.layout.fragment_repo_home), RepoItemListener
         with(binding) {
             srlRefresh.setOnRefreshListener(this@RepoHomeFragment)
             initAdapterLoadingState()
-            rvRepos.addItemDecoration(
+            recycler.layoutManager = ScrollingLinearLayoutManager(requireContext())
+            recycler.addItemDecoration(
                 MarginItemDecoration(R.dimen.spacing_small)
             )
-            rvRepos.adapter =
+            recycler.adapter =
                 adapter.withLoadStateFooter(footer = CoderLoadStateAdapter { adapter.retry() })
             executePendingBindings()
         }
@@ -83,8 +84,8 @@ class RepoHomeFragment : Fragment(R.layout.fragment_repo_home), RepoItemListener
     }
 
     override fun onDestroyView() {
-        if (binding.rvRepos.adapter != null)
-            binding.rvRepos.adapter = null
+        if (binding.recycler.adapter != null)
+            binding.recycler.adapter = null
         super.onDestroyView()
     }
 }

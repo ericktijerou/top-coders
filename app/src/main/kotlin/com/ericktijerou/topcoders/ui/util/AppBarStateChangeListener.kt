@@ -10,7 +10,8 @@ abstract class AppBarStateChangeListener : AppBarLayout.OnOffsetChangedListener 
         when {
             verticalOffset == 0 -> {
                 if (mCurrentState != AppBarState.EXPANDED) {
-                    onStateChanged(appBarLayout,
+                    onStateChanged(
+                        appBarLayout,
                         AppBarState.EXPANDED
                     )
                 }
@@ -19,7 +20,8 @@ abstract class AppBarStateChangeListener : AppBarLayout.OnOffsetChangedListener 
             }
             Math.abs(verticalOffset) >= appBarLayout.totalScrollRange -> {
                 if (mCurrentState != AppBarState.COLLAPSED) {
-                    onStateChanged(appBarLayout,
+                    onStateChanged(
+                        appBarLayout,
                         AppBarState.COLLAPSED
                     )
                 }
@@ -28,7 +30,8 @@ abstract class AppBarStateChangeListener : AppBarLayout.OnOffsetChangedListener 
             }
             else -> {
                 if (mCurrentState != AppBarState.IDLE) {
-                    onStateChanged(appBarLayout,
+                    onStateChanged(
+                        appBarLayout,
                         AppBarState.IDLE
                     )
                 }

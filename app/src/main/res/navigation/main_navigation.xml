@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.ericktijerou.topcoders.ui.home.repo.RepoHomeFragment"
-        android:label="FirstFragment"
-        tools:layout="@layout/fragment_repo_home" />
+        android:name="com.ericktijerou.topcoders.ui.SecondFragment"
+        android:label="SecondFragment"
+        tools:layout="@layout/fragment_second" />
 
     <fragment
         android:id="@+id/secondFragment"

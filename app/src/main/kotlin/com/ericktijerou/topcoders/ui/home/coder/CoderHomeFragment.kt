@@ -2,28 +2,25 @@ package com.ericktijerou.topcoders.ui.home.coder
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.paging.LoadState
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ericktijerou.topcoders.R
-import com.ericktijerou.topcoders.databinding.FragmentCoderHomeBinding
 import com.ericktijerou.topcoders.ui.entity.CoderView
 import com.ericktijerou.topcoders.ui.home.coder.adapter.CoderItemListener
 import com.ericktijerou.topcoders.ui.home.coder.adapter.CoderListAdapter
 import com.ericktijerou.topcoders.ui.home.coder.adapter.CoderLoadStateAdapter
-import com.ericktijerou.topcoders.ui.util.MarginItemDecoration
-import com.ericktijerou.topcoders.ui.util.dataBinding
-import com.ericktijerou.topcoders.ui.util.showErrorMessage
+import com.ericktijerou.topcoders.ui.home.shared.PageHomeFragment
+import com.ericktijerou.topcoders.ui.util.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CoderHomeFragment : Fragment(R.layout.fragment_coder_home), CoderItemListener,
+class CoderHomeFragment : PageHomeFragment(), CoderItemListener,
     SwipeRefreshLayout.OnRefreshListener {
 
     private val viewModel: CoderViewModel by viewModels()
-    private val binding: FragmentCoderHomeBinding by dataBinding()
     private val adapter: CoderListAdapter = CoderListAdapter(this)
+    override val pageType: Int get() = HomePageType.HOME_CODER
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -42,10 +39,11 @@ class CoderHomeFragment : Fragment(R.layout.fragment_coder_home), CoderItemListe
         with(binding) {
             srlRefresh.setOnRefreshListener(this@CoderHomeFragment)
             initAdapterLoadingState()
-            rvUsers.addItemDecoration(
+            recycler.layoutManager = ScrollingLinearLayoutManager(requireContext())
+            recycler.addItemDecoration(
                 MarginItemDecoration(R.dimen.spacing_small)
             )
-            rvUsers.adapter =
+            recycler.adapter =
                 adapter.withLoadStateFooter(footer = CoderLoadStateAdapter { adapter.retry() })
             executePendingBindings()
         }
@@ -83,8 +81,8 @@ class CoderHomeFragment : Fragment(R.layout.fragment_coder_home), CoderItemListe
     }
 
     override fun onDestroyView() {
-        if (binding.rvUsers.adapter != null)
-            binding.rvUsers.adapter = null
+        if (binding.recycler.adapter != null)
+            binding.recycler.adapter = null
         super.onDestroyView()
     }
 }

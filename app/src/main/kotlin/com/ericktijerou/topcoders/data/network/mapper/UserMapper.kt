@@ -1,6 +1,5 @@
 package com.ericktijerou.topcoders.data.network.mapper
 
-import com.ericktijerou.SearchTotalStarsQuery
 import com.ericktijerou.SearchUsersQuery
 import com.ericktijerou.topcoders.data.entity.LanguageModel
 import com.ericktijerou.topcoders.data.entity.UserModel
