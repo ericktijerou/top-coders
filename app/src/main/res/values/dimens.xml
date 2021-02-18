@@ -30,5 +30,6 @@
     <dimen name="icon_xxl">64dp</dimen>
 
     <dimen name="spacing_12">12dp</dimen>
+    <dimen name="spacing_10">10dp</dimen>
     <dimen name="spacing_20">20dp</dimen>
 </resources>

@@ -109,8 +109,8 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_dot"
-                android:layout_width="@dimen/icon_xxs"
-                android:layout_height="@dimen/icon_xxs"
+                android:layout_width="@dimen/spacing_10"
+                android:layout_height="@dimen/spacing_10"
                 app:layout_constraintBottom_toBottomOf="@id/tv_language"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintTop_toTopOf="@id/tv_language"
