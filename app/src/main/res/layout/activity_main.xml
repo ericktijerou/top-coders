@@ -19,7 +19,45 @@
                 android:id="@+id/toolbar"
                 style="@style/Widget.App.Toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize" />
+                android:layout_height="?attr/actionBarSize"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:background="@drawable/background_search"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/TextAppearance.App.Search.EditText"
+                        android:id="@+id/tv_search"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:singleLine="true"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        app:layout_constraintEnd_toStartOf="@id/iv_cancel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_cancel"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/ic_cancel"
+                        app:tint="?attr/textColorOption"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:layout_constraintTop_toTopOf="@id/tv_search"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_search"
+                        app:layout_constraintStart_toEndOf="@id/tv_search"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 

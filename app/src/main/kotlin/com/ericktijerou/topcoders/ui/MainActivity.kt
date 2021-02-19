@@ -26,11 +26,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         setDecorFitsSystemWindows(window)
         super.onCreate(savedInstanceState)
-        setSupportActionBar(binding.toolbar)
+        initToolbar()
         initViewPager()
         initNavigationView()
     }
 
+    private fun initToolbar() {
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+    }
 
     private fun initViewPager() {
         with(binding) {
